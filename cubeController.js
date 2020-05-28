@@ -1,4 +1,5 @@
 var currentFace = 0;
+var currentQuestion = 0;
 var numberOfQuestions = 0;
 var currentMargin = 15;
 var questionsInstance;
@@ -9,14 +10,15 @@ document.onload = LoadXMLDoc();
 // This changes everything
 "use strict";
 
-function TurnLeft()
-{
-    if(rotating == false){
+function TurnLeft() {
+    if (rotating == false && currentQuestion > 0) {
         Rotate(-1);
     }
 }
 
 function Rotate(right) {
+    currentQuestion += right;
+    ChangeQuestions();
     rotating = true;
     setTimeout(FinishRotating, 2000);
     var cubeStyle = document.getElementById("cube").style;
@@ -67,12 +69,11 @@ function Rotate(right) {
     }
 }
 
-function FinishRotating()
-{
+function FinishRotating() {
     rotating = false;
 }
 
-function Exit(){
+function Exit() {
     console.log("Add exit logic here.");
 }
 
@@ -81,9 +82,9 @@ function AddQuestion(questionNr, answerNr, text) {
     var allCubeForms = document.getElementsByClassName("cubeForm");
     var submit = document.getElementsByClassName("check");
 
-    var p     = document.createElement("P"); // This is the container of all the elements
+    var p = document.createElement("P"); // This is the container of all the elements
     var radio = document.createElement("INPUT");
-    var cont  = document.createElement("DIV"); // Container of the custom radio button
+    var cont = document.createElement("DIV"); // Container of the custom radio button
     var check = document.createElement("SPAN");
 
     p.setAttribute("class", "question");
@@ -162,36 +163,44 @@ function ParseXML(xml) {
         vragen[i] = new Vraag(questions[i].getAttribute("vraag"), antwoorden)
     }
     questionsInstance = vragen;
-    ChangeQuestions(vragen)
-}
-
-// Bulk add all the questions
-function ChangeQuestions(vragen) {
-    var titles = document.getElementsByClassName("vraag");
-    var forms = document.getElementsByClassName("cubeForm");
-    for (var i = 0; i < titles.length; i++) {
-        titles[i].innerHTML = vragen[i].vraag;
-        for (var j = 0; j < vragen[i].antwoorden.length; j++) {
-            AddQuestion(i, j, vragen[i].antwoorden[j].antwoord);
-        }
-    }
+    ChangeQuestions()
 
     // For Demo purposes:
     var loaded = document.createElement("P");
     loaded.innerHTML = "Loaded the questions from XML"
     loaded.style.color = "#f54242"
     document.getElementById("interface").appendChild(loaded);
+}
 
+function RemoveQuestions() {
+    var forms = document.getElementsByClassName("cubeForm");
+    while(forms[currentQuestion].firstChild && forms[currentQuestion].firstChild.tagName != "INPUT"){
+            forms[currentQuestion].removeChild(forms[currentQuestion].firstChild);
+        }
+    }
+
+
+// Bulk add all the questions
+function ChangeQuestions() {
+    RemoveQuestions();
+
+    var titles = document.getElementsByClassName("vraag");
+    var forms = document.getElementsByClassName("cubeForm");
+
+    titles[currentQuestion].innerHTML = questionsInstance[currentQuestion].vraag;
+    for (var j = 0; j < questionsInstance[currentQuestion].antwoorden.length; j++) {
+        AddQuestion(currentQuestion, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
+    }
 }
 
 function CheckCorrect(groupNumber) {
-    if(rotating == false){
+    if (rotating == false) {
         var groupName = "vraag_" + groupNumber;
         var radios = document.getElementsByName(groupName);
         for (i = 0; i < radios.length; i++) {
+            // Answer is correct, move on
             if (radios[i].checked && questionsInstance[groupNumber].antwoorden[i].correct == true) {
-                console.log("checked: " + i)
-                Rotate(1)
+                Rotate(1);
                 playAudio("audioRight");
                 faceGlow(groupNumber, true);
                 return;
@@ -207,7 +216,7 @@ function playAudio(id) {
     var audio = document.getElementById(id);
     if (audio.paused) {
         audio.play();
-    }else{
+    } else {
         audio.currentTime = 0
     }
 }
