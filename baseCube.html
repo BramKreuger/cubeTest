@@ -281,13 +281,25 @@
             margin-top: 5px;
             margin-left: 5px;
         }
-
-        img {
-            top: 25%;
-            left: 55%;
-            width: 40%;
+        .mask{
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
             position: absolute;
             z-index: -1;
+            opacity:
+        }
+
+        .art {
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 60%;
+            object-fit: cover;
+            position: absolute;
+            z-index: -2;
         }
 
         form {
@@ -305,12 +317,12 @@
             background: rgb(255, 255, 255, .5);
             border: 1px solid black;
             width: 33%;
-            margin-left: 16.6%;
+            margin-left: 15%;
             bottom: 5%;
         }
 
         input[type=submit]:hover {
-            background: rgb(255, 255, 255, .8);
+            background: rgb(204, 204, 204, .5);;
         }
 
         input[type=submit]:active {
@@ -401,7 +413,7 @@
         }
 
         .face button i:hover {
-            color: white;
+            color: rgb(164, 52, 235);;
         }
 
         .face button:active {
@@ -410,10 +422,11 @@
 
         .goBack {
             bottom: 5%;
-            left: 5%;
+            left: 4.5%;
         }
 
         .exit {
+            color: white;
             top: 5%;
             right: 5%;
         }
@@ -445,7 +458,8 @@
             <!-- A div for each face of the cube -->
             <div id="front_face" class="face face-glow">
                 <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
-                <img src="images/nachtwacht.jpg" alt="">
+                <img class="mask" src="images/mask.png" alt="mask">
+                <img class="art" src="images/nachtwacht.jpg" alt="">
                 <!--<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
                 </iframe>-->
                 <form class="cubeForm" onsubmit="return false">
@@ -457,7 +471,8 @@
             </div>
             <div id="right_face" class="face face-glow">
                 <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
-                <img class="cubeForm" src="images/nachtwacht.jpg" alt="">
+                <img class="mask" src="images/mask.png" alt="mask">
+                <img class="art"  src="images/meisje_aan_het_venster.jpg" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(1)" class="check" type="submit" value="Check antwoord">
@@ -467,7 +482,8 @@
             </div>
             <div id="back_face" class="face face-glow">
                 <h3 class="vraag">Waar woonde Rembrandt?</h3>
-                <img src="images/nachtwacht.jpg" alt="">
+                <img class="mask" src="images/mask.png" alt="mask">
+                <img class="art" src="images/melk_meisje.jpg" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(2)" class="check" type="submit" value="Check antwoord">
@@ -477,7 +493,8 @@
             </div>
             <div id="left_face" class="face face-glow">
                 <h3 class="vraag">laatse?</h3>
-                <img src="images/nachtwacht.jpg" alt="">
+                <img class="mask" src="images/mask.png" alt="mask">
+                <img class="art"  src="images/frans.jpg" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(3)" class="check" type="submit" value="Check antwoord">
