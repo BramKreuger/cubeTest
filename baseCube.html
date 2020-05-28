@@ -1,0 +1,491 @@
+<html>
+
+<head>
+    <title>3D Cube in PureScript</title>
+    <style>
+        #cube-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 33%;
+            perspective: 1000px;
+        }
+
+        #cube {
+            position: relative;
+            transform-style: preserve-3d;
+            animation-name: rotate-0;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes rotate-0 {
+
+            /* base animation e.g. still */
+            0% {
+                transform: rotate3d(0, 1, 0, -0deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -0deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-1-right {
+            0% {
+                transform: rotate3d(0, 0, 0, 0);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -90deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-1-left {
+            0% {
+                transform: rotate3d(0, 0, 0, 0);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, 90deg);
+                /*controls rotation amount on one axis) */
+                ;
+            }
+        }
+
+        @keyframes rotate-2-right {
+            0% {
+                transform: rotate3d(0, 1, 0, -90deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -180deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-2-left {
+            0% {
+                transform: rotate3d(0, 1, 0, -90deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, 0deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-3-right {
+            0% {
+                transform: rotate3d(0, 1, 0, -180deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -270deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-3-left {
+            0% {
+                transform: rotate3d(0, 1, 0, -180deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -90deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-4-right {
+            0% {
+                transform: rotate3d(0, 1, 0, -270deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -360deg);
+                ;
+            }
+        }
+
+        @keyframes rotate-4-left {
+            0% {
+                transform: rotate3d(0, 1, 0, -270deg);
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -180deg);
+                ;
+            }
+        }
+
+        @keyframes glow-red {
+            0% {
+                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, 0);
+            }
+
+            25% {
+                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, .9);
+            }
+
+            100% {
+                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, 0);
+            }
+        }
+
+        @keyframes glow-green {
+            0% {
+                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, 0);
+            }
+
+            25% {
+                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, .9);
+            }
+
+            100% {
+                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, 0);
+            }
+        }
+
+
+        /* Size and border color for each face */
+
+        .face-glow {
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+        }
+
+        @media only screen and (max-width: 1100px) {
+
+            #cube-wrapper {
+                top: 50%;
+            }
+
+            iframe {
+                width: 400px;
+                height: 225px;
+            }
+
+            .face {
+                position: absolute;
+                width: 400px;
+                height: 225px;
+                border: solid black 3px;
+            }
+
+            /* Transforming every face into their correct positions */
+
+            #front_face {
+                transform: translateX(-200px) translateY(-100px) translateZ(200px);
+                background: rgba(255, 0, 0, 0.9);
+            }
+
+            #back_face {
+                transform: translateX(-200px) translateY(-100px) translateZ(-200px) rotateY(180deg);
+                background: rgba(255, 0, 255, 0.9);
+            }
+
+            #right_face {
+                transform: translateY(-100px) rotateY(90deg);
+                background: rgba(255, 255, 0, 0.9);
+            }
+
+            #left_face {
+                transform: translateY(-100px) translateX(-400px) rotateY(-90deg);
+                background: rgba(0, 255, 0, 0.9);
+            }
+
+            #top_face {
+                transform: translateX(-200px) translateY(-300px) rotateX(90deg);
+                background: rgba(0, 255, 255, 0.9);
+                height: 395px;
+            }
+
+            #bottom_face {
+                transform: translateY(-70px) translateX(-200px) rotateX(90deg);
+                background: rgba(255, 255, 255, 0.9);
+                height: 395px;
+            }
+        }
+
+        @media only screen and (min-width: 1100px) {
+
+            iframe {
+                width: 666px;
+                height: 375px;
+            }
+
+            .face {
+                position: absolute;
+                width: 666px;
+                height: 375px;
+                border: solid black 3px;
+            }
+
+            /* Transforming every face into their correct positions */
+
+            #front_face {
+                transform: translateX(-333px) translateY(-100px) translateZ(333px);
+                background: rgba(255, 0, 0, 0.9);
+            }
+
+            #back_face {
+                transform: translateX(-333px) translateY(-100px) translateZ(-333px) rotateY(180deg);
+                background: rgba(255, 0, 255, 0.9);
+            }
+
+            #right_face {
+                transform: translateY(-100px) rotateY(90deg);
+                background: rgba(255, 255, 0, 0.9);
+            }
+
+            #left_face {
+                transform: translateY(-100px) translateX(-666px) rotateY(-90deg);
+                background: rgba(0, 255, 0, 0.9);
+            }
+
+            #top_face {
+                transform: translateX(-333px) translateY(-435px) rotateX(90deg);
+                background: rgba(0, 255, 255, 0.9);
+                height: 666px;
+            }
+
+            #bottom_face {
+                transform: translateY(-57px) translateX(-333px) rotateX(90deg);
+                background: rgba(255, 255, 255, 0.9);
+                height: 664px;
+            }
+        }
+
+        #cube {
+            transform: rotateX(90deg) rotateY(90deg);
+        }
+
+        /* content of the faces */
+
+        h3 {
+            margin-left: 5%;
+            margin: 10px;
+        }
+
+        #cube p {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-left: 5%;
+        }
+
+        #cube p label {
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        img {
+            top: 25%;
+            left: 55%;
+            width: 40%;
+            position: absolute;
+            z-index: -1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            line-height: 10px;
+        }
+
+        .question {
+            display: flex;
+        }
+
+        input[type=submit] {
+            position: absolute;
+            background: rgb(255, 255, 255, .5);
+            border: 1px solid black;
+            width: 33%;
+            margin-left: 16.6%;
+            bottom: 5%;
+        }
+
+        input[type=submit]:hover {
+            background: rgb(255, 255, 255, .8);
+        }
+
+        input[type=submit]:active {
+            background: rgb(255, 255, 255, .9);
+            border: 1px solid white;
+            transform: translateY(4px);
+        }
+
+        /* Restyle the radio button ----------------------*/
+        /* The container */
+        .customRadio {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .customRadio input {
+            z-index: 3;
+            height: 20px;
+            width: 20px;
+            left: -5px;
+            top: -4px;
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Create a custom radio button */
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            border: 1px solid black;
+            border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .customRadio:hover input~.checkmark {
+            background-color: rgb(204, 204, 204, .5);
+        }
+
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .customRadio input:checked~.checkmark:after {
+            display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .customRadio .checkmark:after {
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: black;
+        }
+
+        /* --------------------- */
+
+        .face button {
+            /* Remove styling */
+            background: rgb(0, 0, 0, 0);
+            box-shadow: 0px 0px 0px transparent;
+            border: 0px solid transparent;
+            text-shadow: 0px 0px 0px transparent;
+
+            height: 20px;
+            width: 20px;
+            font-size: 15px;
+            position: absolute;
+        }
+
+        .face button i:hover {
+            color: white;
+        }
+
+        .face button:active {
+            transform: translateY(4px);
+        }
+
+        .goBack {
+            bottom: 5%;
+            left: 5%;
+        }
+
+        .exit {
+            top: 5%;
+            right: 5%;
+        }
+
+        iframe {
+            display: none;
+            position: absolute;
+            z-index: 100;
+            top: 0;
+        }
+
+    </style>
+    <script src="cubeController.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body style="width: 100%; height:100%;">
+    <!-- Wrapper for the cube -->
+    <div id="cube-wrapper">
+        <div id="cube">
+            <!-- A div for each face of the cube -->
+            <div id="front_face" class="face face-glow">
+                <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
+                <img src="images/nachtwacht.jpg" alt="">
+                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe>
+                <form class="cubeForm" onsubmit="return false">
+                    <!-- Add dynamicly -->
+                    <input onclick="CheckCorrect(0)" class="check" type="submit" value="Check antwoord">
+                </form>
+                <button onclick="Rotate(-1)" class="goBack"><i class="fa fa-chevron-left"></i></button>
+                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
+            </div>
+            <div id="right_face" class="face face-glow">
+                <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
+                <img class="cubeForm" src="images/nachtwacht.jpg" alt="">
+                <form class="cubeForm" onsubmit="return false">
+                    <!-- Add dynamicly -->
+                    <input onclick="CheckCorrect(1)" class="check" type="submit" value="Check antwoord">
+                </form>
+                <button onclick="Rotate(-1)" class="goBack"><i class="fa fa-chevron-left"></i></button>
+                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
+            </div>
+            <div id="back_face" class="face face-glow">
+                <h3 class="vraag">Waar woonde Rembrandt?</h3>
+                <img src="images/nachtwacht.jpg" alt="">
+                <form class="cubeForm" onsubmit="return false">
+                    <!-- Add dynamicly -->
+                    <input onclick="CheckCorrect(2)" class="check" type="submit" value="Check antwoord">
+                </form>
+                <button onclick="Rotate(-1)" class="goBack"><i class="fa fa-chevron-left"></i></button>
+                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
+            </div>
+            <div id="left_face" class="face face-glow">
+                <h3 class="vraag">laatse?</h3>
+                <img src="images/nachtwacht.jpg" alt="">
+                <form class="cubeForm" onsubmit="return false">
+                    <!-- Add dynamicly -->
+                    <input onclick="CheckCorrect(3)" class="check" type="submit" value="Check antwoord">
+                </form>
+                <button onclick="Rotate(-1)" class="goBack"><i class="fa fa-chevron-left"></i></button>
+                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
+            </div>
+            <div id="top_face" class="face"></div>
+            <div id="bottom_face" class="face"></div>
+        </div>
+    </div>
+    <div id="interface">
+        <h2>Interface</h2>
+        <button onclick="Rotate(-1)">Turn Left</button>
+        <button onclick="Rotate(1)"> Turn right</button> <br>
+    </div>
+</body>
+
+</html>

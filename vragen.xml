@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Wie heeft de nachtwacht geschilderd? 0">
+			<antwoorden>
+				<antwoord>
+					<text>Rembrandt</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Van Gogh</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Frans Hals</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Picasso</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wanneer is de nachtwacht geschilderd? 1">
+			<antwoorden>
+				<antwoord>
+					<text>1667</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>1780</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>1910</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>1642</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wie is het melkmeisje? 2">
+			<antwoorden>
+				<antwoord>
+					<text>een meisje</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>een pop</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>dat weten we niet</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>de vrouw van vermeer</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Waar woonde Frans Hals? 3">
+			<antwoorden>
+				<antwoord>
+					<text>Haarlem</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Den Haag</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Zwolle</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Leiden</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wie is het melkmeisje? 4">
+			<antwoorden>
+				<antwoord>
+					<text>antw 4 1</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 2</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 3</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 4</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>
