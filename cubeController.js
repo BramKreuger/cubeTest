@@ -2,15 +2,23 @@ var currentFace = 0;
 var numberOfQuestions = 0;
 var currentMargin = 15;
 var questionsInstance;
-
+var rotating = false;
 document.onload = LoadXMLDoc();
 // 1 IS RIGHT, -1 IS LEFT
 
 // This changes everything
 "use strict";
 
-function Rotate(right) {
+function TurnLeft()
+{
+    if(rotating == false){
+        Rotate(-1);
+    }
+}
 
+function Rotate(right) {
+    rotating = true;
+    setTimeout(FinishRotating, 2000);
     var cubeStyle = document.getElementById("cube").style;
 
     // Turn right
@@ -57,6 +65,11 @@ function Rotate(right) {
     if (currentFace < 0) {
         currentFace = 3;
     }
+}
+
+function FinishRotating()
+{
+    rotating = false;
 }
 
 function Exit(){
@@ -172,18 +185,31 @@ function ChangeQuestions(vragen) {
 }
 
 function CheckCorrect(groupNumber) {
-    var groupName = "vraag_" + groupNumber;
-    var radios = document.getElementsByName(groupName);
-    for (i = 0; i < radios.length; i++) {
-        if (radios[i].checked && questionsInstance[groupNumber].antwoorden[i].correct == true) {
-            console.log("checked: " + i)
-            Rotate(1)
-            faceGlow(groupNumber, true);
-            return;
+    if(rotating == false){
+        var groupName = "vraag_" + groupNumber;
+        var radios = document.getElementsByName(groupName);
+        for (i = 0; i < radios.length; i++) {
+            if (radios[i].checked && questionsInstance[groupNumber].antwoorden[i].correct == true) {
+                console.log("checked: " + i)
+                Rotate(1)
+                playAudio("audioRight");
+                faceGlow(groupNumber, true);
+                return;
+            }
         }
+        playAudio("audioWrong");
+        faceGlow(groupNumber, false);
+        return;
     }
-    faceGlow(groupNumber, false);
-    return;
+}
+
+function playAudio(id) {
+    var audio = document.getElementById(id);
+    if (audio.paused) {
+        audio.play();
+    }else{
+        audio.currentTime = 0
+    }
 }
 
 function faceGlow(faceNumber, correct) {
