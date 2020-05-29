@@ -4,6 +4,7 @@ var numberOfQuestions = 0;
 var currentMargin = 15;
 var questionsInstance;
 var rotating = false;
+var selectedAnswers;
 document.onload = LoadXMLDoc();
 // 1 IS RIGHT, -1 IS LEFT
 
@@ -17,8 +18,11 @@ function TurnLeft() {
 }
 
 function Rotate(right) {
+    //Save answer by putting current bool in array
+    SaveAnswer();
+
     currentQuestion += right;
-    ChangeQuestions();
+    ChangeQuestions(right);
     rotating = true;
     setTimeout(FinishRotating, 2000);
     var cubeStyle = document.getElementById("cube").style;
@@ -77,6 +81,26 @@ function Exit() {
     console.log("Add exit logic here.");
 }
 
+function SaveAnswer() {
+    var form = document.getElementsByClassName("cubeForm")[currentFace];
+    var inputs = form.elements;
+    var radios = [];
+
+    //Loop and find only the Radios
+    for (var i = 0; i < inputs.length; ++i) {
+        if (inputs[i].type == 'radio') {
+            radios.push(inputs[i]);
+        }
+    }
+
+    //var found = 1;
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            selectedAnswers[currentQuestion] = i;
+        }
+    }
+}
+
 // Manipulate the DOM to add the answers.
 function AddQuestion(questionNr, answerNr, text) {
     var allCubeForms = document.getElementsByClassName("cubeForm");
@@ -99,6 +123,14 @@ function AddQuestion(questionNr, answerNr, text) {
     val += "_";
     val += answerNr;
     radio.value = val;
+
+    if(selectedAnswers != undefined){
+        if(selectedAnswers[currentQuestion] != undefined){
+            if(answerNr == selectedAnswers[currentQuestion]){
+                radio.checked = true;
+            }
+        }
+    }
 
     var label = document.createElement("LABEL");
     label.setAttribute("for", val);
@@ -163,7 +195,9 @@ function ParseXML(xml) {
         vragen[i] = new Vraag(questions[i].getAttribute("vraag"), antwoorden)
     }
     questionsInstance = vragen;
-    ChangeQuestions()
+    ChangeQuestions(0)
+
+    selectedAnswers = new Array(questions.length);
 
     // For Demo purposes:
     var loaded = document.createElement("P");
@@ -172,24 +206,34 @@ function ParseXML(xml) {
     document.getElementById("interface").appendChild(loaded);
 }
 
-function RemoveQuestions() {
+function RemoveQuestions(newFace) {
     var forms = document.getElementsByClassName("cubeForm");
-    while(forms[currentQuestion].firstChild && forms[currentQuestion].firstChild.tagName != "INPUT"){
-            forms[currentQuestion].removeChild(forms[currentQuestion].firstChild);
-        }
+    while (forms[newFace].firstChild && forms[newFace].firstChild.tagName != "INPUT") {
+        forms[newFace].removeChild(forms[newFace].firstChild);
     }
+}
 
 
 // Bulk add all the questions
-function ChangeQuestions() {
-    RemoveQuestions();
+function ChangeQuestions(right) {
+    // Overflow currentface
+    var newFace = currentFace + right;
+    if (newFace > 3) {
+        newFace = 0;
+    }
+    if (newFace < 0) {
+        newFace = 3;
+    }
+
+    console.log("Q: " + currentQuestion + " vs " + (newFace));
+    RemoveQuestions(newFace);
 
     var titles = document.getElementsByClassName("vraag");
     var forms = document.getElementsByClassName("cubeForm");
 
-    titles[currentQuestion].innerHTML = questionsInstance[currentQuestion].vraag;
+    titles[newFace].innerHTML = questionsInstance[currentQuestion].vraag;
     for (var j = 0; j < questionsInstance[currentQuestion].antwoorden.length; j++) {
-        AddQuestion(currentQuestion, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
+        AddQuestion(newFace, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
     }
 }
 
