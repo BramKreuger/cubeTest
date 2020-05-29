@@ -1,10 +1,9 @@
 var currentFace = 0;
 var currentQuestion = 0;
-var numberOfQuestions = 0;
-var currentMargin = 15;
-var questionsInstance;
+var nrOfQuestions = 0;
+var questionsInstance; // Saves all the questions and answers in a class instance
 var rotating = false;
-var selectedAnswers;
+var selectedAnswers; // Saves all the selected answers in an array of integers
 document.onload = LoadXMLDoc();
 // 1 IS RIGHT, -1 IS LEFT
 
@@ -18,13 +17,12 @@ function TurnLeft() {
 }
 
 function Rotate(right) {
-    //Save answer by putting current bool in array
-    SaveAnswer();
+    SaveAnswer(); //Save answer by putting current bool in array
 
     currentQuestion += right;
-    ChangeQuestions(right);
+    ChangeQuestions(right); // Replace the questions on the next / previous face
     rotating = true;
-    setTimeout(FinishRotating, 2000);
+    setTimeout(FinishRotating, 2000); // Disable rotating for two seconds
     var cubeStyle = document.getElementById("cube").style;
 
     // Turn right
@@ -64,7 +62,7 @@ function Rotate(right) {
 
     currentFace += right;
 
-    // Overflow currentface
+    // Overflow currentFace
     if (currentFace > 3) {
         currentFace = 0;
     }
@@ -73,6 +71,7 @@ function Rotate(right) {
     }
 }
 
+// Reset rotation bool
 function FinishRotating() {
     rotating = false;
 }
@@ -82,7 +81,7 @@ function Exit() {
 }
 
 function SaveAnswer() {
-    var form = document.getElementsByClassName("cubeForm")[currentFace];
+    var form = document.getElementsByClassName("cubeForm")[currentFace]; // Get the form of the current face
     var inputs = form.elements;
     var radios = [];
 
@@ -124,9 +123,9 @@ function AddQuestion(questionNr, answerNr, text) {
     val += answerNr;
     radio.value = val;
 
-    if(selectedAnswers != undefined){
-        if(selectedAnswers[currentQuestion] != undefined){
-            if(answerNr == selectedAnswers[currentQuestion]){
+    if(selectedAnswers != undefined){ // If the array exists
+        if(selectedAnswers[currentQuestion] != undefined){ // If the current question has been loaded before
+            if(answerNr == selectedAnswers[currentQuestion]){ // If the current answer equals the selected answer
                 radio.checked = true;
             }
         }
@@ -136,16 +135,11 @@ function AddQuestion(questionNr, answerNr, text) {
     label.setAttribute("for", val);
     label.innerHTML = text;
 
-    cont.appendChild(radio);
+    cont.appendChild(radio); // Append all
     cont.appendChild(check);
     p.appendChild(cont);
     p.appendChild(label)
     submit[questionNr].before(p); // Put the questions before the submit button in the DOM
-
-    var questions = document.querySelectorAll('#cube p')
-    for (var j = 0; j < questions.length; j++) {
-        questions[j].style.marginTop = currentMargin;
-    }
 }
 
 // Load XML from URL
@@ -183,6 +177,7 @@ class Antwoord {
 // Stick the XML data in more managable classes
 function ParseXML(xml) {
     var questions = xml.getElementsByTagName("vraag_en_antwoord");
+    nrOfQuestions = questions.length - 1;
     var vragen = new Array(questions.length);
     for (var i = 0; i < questions.length; i++) {
         var antwoordenXML = questions[i].getElementsByTagName("antwoord");
@@ -225,7 +220,6 @@ function ChangeQuestions(right) {
         newFace = 3;
     }
 
-    console.log("Q: " + currentQuestion + " vs " + (newFace));
     RemoveQuestions(newFace);
 
     var titles = document.getElementsByClassName("vraag");
@@ -238,7 +232,7 @@ function ChangeQuestions(right) {
 }
 
 function CheckCorrect(groupNumber) {
-    if (rotating == false) {
+    if (rotating == false && currentQuestion < nrOfQuestions) {
         var groupName = "vraag_" + groupNumber;
         var radios = document.getElementsByName(groupName);
         for (i = 0; i < radios.length; i++) {
