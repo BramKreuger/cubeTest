@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html>
-
 <head>
     <title>3D Cube in PureScript</title>
     <style>
@@ -8,6 +8,7 @@
             left: 50%;
             top: 33%;
             perspective: 1000px;
+            font-family: sans-serif, "arial"
         }
 
         #cube {
@@ -27,7 +28,7 @@
             }
 
             100% {
-                transform: rotate3d(0, 1, 0, -0deg);
+                transform: rotate3d(0, 1, 0, 0deg);
                 ;
             }
         }
@@ -162,6 +163,7 @@
 
             #cube-wrapper {
                 top: 50%;
+                font-size: 12px;
             }
 
             iframe {
@@ -267,8 +269,8 @@
         /* content of the faces */
 
         h3 {
-            margin: 10px;
-            margin-left: 9%;
+            margin: 8% 10px 10px 6%;
+            width: 70%
         }
 
         #cube p {
@@ -289,7 +291,6 @@
             object-fit: cover;
             position: absolute;
             z-index: -1;
-            opacity:
         }
 
         .art {
@@ -315,20 +316,25 @@
         input[type=submit] {
             position: absolute;
             background: rgb(255, 255, 255, .5);
-            border: 1px solid black;
             width: 33%;
             margin-left: 15%;
-            bottom: 5%;
+            bottom: 2%;
+            border: none !important;
         }
 
         input[type=submit]:hover {
-            background: rgb(204, 204, 204, .5);;
+            background: rgb(204, 204, 204, .5);
+            border: none !important;
         }
 
         input[type=submit]:active {
             background: rgb(255, 255, 255, .9);
-            border: 1px solid white;
             transform: translateY(4px);
+            border: none !important;
+        }
+
+        input[type=submit]:focus {
+            border: none !important;
         }
 
         /* Restyle the radio button ----------------------*/
@@ -413,7 +419,7 @@
         }
 
         .face button i:hover {
-            color: rgb(164, 52, 235);;
+            color: rgb(164, 52, 235);
         }
 
         .face button:active {
@@ -421,8 +427,8 @@
         }
 
         .goBack {
-            bottom: 5%;
-            left: 4.5%;
+            bottom: 2%;
+            left: 2%;
         }
 
         .exit {
@@ -434,17 +440,59 @@
         iframe {
             display: none;
             position: absolute;
-            z-index: 100;
+            z-index: 0;
             top: 0;
         }
 
         .logo{
             position: absolute;
-            width: 25;
+            width: 25px;
             top: 2%;
             left: 2%;
         }
 
+        .counter{
+            position: absolute;
+            top: 2%;
+            left: 5%;
+        }
+
+        /* ----------PAGER---------- */
+        .pagination {
+            display: flex;
+            position: absolute;
+            top: 2%;
+            left: 30%;
+        }
+
+        .pagination p {
+            color: black;
+            float: left;
+            padding: 0 4px;
+            text-decoration: none;
+        }
+
+        .pagination p.finished {
+            background-color: limegreen;
+            border-radius: 10%;
+            color: white;
+        }
+
+        .pagination p.active {
+            border: 1px solid black !important;
+            border-radius: 30% !important;
+            background-color: rgb(164, 52, 235) !important;
+            color: white !important;
+        }
+        .pagination p:hover:not(.active) {
+            background-color: #ddd;
+            border-radius: 10%;
+            cursor: pointer;
+        }
+        .pagination .finished:hover{
+            background-color: green !important;
+        }
+        /* ----- */
     </style>
     <script src="cubeController.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -465,12 +513,14 @@
         <div id="cube">
             <!-- A div for each face of the cube -->
             <div id="front_face" class="face face-glow">
-               <img class="logo" src="images/KUBUS_donkergrijs.png" alt="">
+                <p class="counter">1 / 5 - 35</p>
+                <div class="pagination"></div>
+                <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art" src="images/nachtwacht.jpg" alt="">
-                <!--<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe>-->
+                <!---<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                </iframe> --->
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(0)" class="check" type="submit" value="Check antwoord">
@@ -479,6 +529,9 @@
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="right_face" class="face face-glow">
+              <p class="counter">1 / 5 - 35</p>
+              <div class="pagination"></div>
+               <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art"  src="images/meisje_aan_het_venster.jpg" alt="">
@@ -490,6 +543,9 @@
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="back_face" class="face face-glow">
+              <p class="counter">1 / 5 - 35</p>
+              <div class="pagination"></div>
+               <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Waar woonde Rembrandt?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art" src="images/melk_meisje.jpg" alt="">
@@ -501,6 +557,9 @@
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="left_face" class="face face-glow">
+              <p class="counter">1 / 5 - 35</p>
+              <div class="pagination"></div>
+               <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">laatse?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art"  src="images/frans.jpg" alt="">
@@ -514,11 +573,6 @@
             <div id="top_face" class="face"></div>
             <div id="bottom_face" class="face"></div>
         </div>
-    </div>
-    <div id="interface">
-        <h2>Interface</h2>
-        <button onclick="Rotate(-1)">Turn Left</button>
-        <button onclick="Rotate(1)"> Turn right</button> <br>
     </div>
 </body>
 

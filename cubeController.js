@@ -21,6 +21,7 @@ function Rotate(right) {
 
     currentQuestion += right;
     ChangeQuestions(right); // Replace the questions on the next / previous face
+
     rotating = true;
     setTimeout(FinishRotating, 2000); // Disable rotating for two seconds
     var cubeStyle = document.getElementById("cube").style;
@@ -77,7 +78,7 @@ function FinishRotating() {
 }
 
 function Exit() {
-    console.log("Add exit logic here.");
+    document.getElementById("cube-wrapper").style.display = "none";
 }
 
 function SaveAnswer() {
@@ -123,9 +124,11 @@ function AddQuestion(questionNr, answerNr, text) {
     val += answerNr;
     radio.value = val;
 
-    if(selectedAnswers != undefined){ // If the array exists
-        if(selectedAnswers[currentQuestion] != undefined){ // If the current question has been loaded before
-            if(answerNr == selectedAnswers[currentQuestion]){ // If the current answer equals the selected answer
+    if (answerNr == 0) radio.checked = true;
+
+    if (selectedAnswers != undefined) { // If the array exists
+        if (selectedAnswers[currentQuestion] != undefined) { // If the current question has been loaded before
+            if (answerNr == selectedAnswers[currentQuestion]) { // If the current answer equals the selected answer
                 radio.checked = true;
             }
         }
@@ -193,12 +196,6 @@ function ParseXML(xml) {
     ChangeQuestions(0)
 
     selectedAnswers = new Array(questions.length);
-
-    // For Demo purposes:
-    var loaded = document.createElement("P");
-    loaded.innerHTML = "Loaded the questions from XML"
-    loaded.style.color = "#f54242"
-    document.getElementById("interface").appendChild(loaded);
 }
 
 function RemoveQuestions(newFace) {
@@ -207,7 +204,6 @@ function RemoveQuestions(newFace) {
         forms[newFace].removeChild(forms[newFace].firstChild);
     }
 }
-
 
 // Bulk add all the questions
 function ChangeQuestions(right) {
@@ -220,6 +216,8 @@ function ChangeQuestions(right) {
         newFace = 3;
     }
 
+    ChangeCounter(newFace);
+    ChangePaginator(newFace, right);
     RemoveQuestions(newFace);
 
     var titles = document.getElementsByClassName("vraag");
@@ -267,4 +265,60 @@ function faceGlow(faceNumber, correct) {
 
     if (correct) face.style.animationName = "glow-green";
     else face.style.animationName = "glow-red";
+}
+
+function ChangeCounter(question) {
+    var currentCounter = document.getElementsByClassName("counter")[question];
+    currentCounter.innerHTML = (currentQuestion + 1) + " / " + (nrOfQuestions + 1) + " van " + "35";
+}
+
+function ChangePaginator(question, right) {
+    var pagers = document.getElementsByClassName("pagination");
+    if (pagers[question].children.length == 0) { // If there are no "-"'s make new ones.
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < nrOfQuestions + 1; j++) {
+                (function (j) {
+                    var page = document.createElement("P");
+                    page.addEventListener("click", function () {
+                        moveToFace(j);
+                    });
+                    page.innerHTML = "-";
+                    pagers[i].appendChild(page);
+                })(j);
+            }
+        }
+    }
+    if (right == 0) { // initial load
+        for (var i = 0; i < 4; i++) {
+            pagers[i].children[question].classList.add("active");
+        }
+    } else {
+        for (var i = 0; i < 4; i++) {
+            var prev = right * -1;
+            pagers[i].children[currentQuestion + prev].classList.remove("active");
+            pagers[i].children[currentQuestion + prev].classList.add("finished");
+            pagers[i].children[currentQuestion].classList.add("active");
+        }
+    }
+}
+
+function moveToFace(toFace) {
+    if (rotating == false) {
+        var pagers = document.getElementsByClassName("pagination");
+        var newFace = pagers[currentFace].children[toFace];
+
+        if (newFace.classList.contains("finished")) {
+            var distance = toFace - currentQuestion;
+            var right = 1; //go right
+            if (distance < 0) {
+                distance = distance * -1;
+                right = -1;
+            }
+            for (var i = 0; i < distance; i++) {
+                setTimeout(function () {
+                    Rotate(right);
+                }, 2000 * i);
+            }
+        }
+    }
 }

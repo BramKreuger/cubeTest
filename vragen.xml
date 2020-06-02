@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <vraagCollectie>
 	<vragen>
-		<vraag_en_antwoord vraag="Wie heeft de nachtwacht geschilderd? 0">
+		<vraag_en_antwoord vraag="Wie heeft de nachtwacht geschilderd? Dit is een extra lange text ... 0">
 			<antwoorden>
 				<antwoord>
 					<text>Rembrandt</text>
