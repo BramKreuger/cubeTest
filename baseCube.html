@@ -399,7 +399,7 @@
                 font-size: 12px;
             }
 
-            .faceWrapper iframe {
+            #bottom_face .faceWrapper iframe {
                 top: 2.5%;
                 width: calc(400px - 5%);
                 height: calc(240px - 2.5%);
@@ -444,21 +444,22 @@
 
             #top_face {
                 transform: translateX(-200px) translateY(-300px) rotateX(90deg);
-                background: rgba(0, 255, 255, 0.9);
-                height: 395px;
+                background: white;
+                height: 400px;
             }
 
             #bottom_face {
-                transform: translateY(-70px) translateX(-200px) rotateX(-90deg);
+                transform: translateY(-75px) translateX(-200px) rotateX(-90deg);
                 background: rgb(68, 115, 197);
-                height: 395px;
+                height: 400px;
             }
         }
 
         @media only screen and (min-width: 1100px) {
 
-            .faceWrapper iframe {
+            #bottom_face .faceWrapper iframe {
                 top: 2.5%;
+                left: 2.5%;
                 width: calc(666px - 5%);
                 height: calc(444px - 2.5%);
             }
@@ -471,13 +472,13 @@
             }
 
             .promo{
-                position: absolute;
+                /*position: absolute;*/
                 top: 450px;
                 width: 95%;
                 height: calc(97.5% - 450px);
             }
             .promo button{
-                right: 2.5% !important;
+                right: 0 !important;
             }
 
             /* Transforming every face into their correct positions */
@@ -504,7 +505,7 @@
 
             #top_face {
                 transform: translateX(-333px) translateY(-435px) rotateX(90deg);
-                background: rgba(0, 255, 255, 0.9);
+                background: white;
                 height: 666px;
             }
 
@@ -577,7 +578,7 @@
         }
 
         input[type=submit]:hover {
-            background: rgb(204, 204, 204, .5);
+            color:  rgb(164, 52, 235);
             border: none !important;
         }
 
@@ -756,15 +757,15 @@
         .pagination p:hover:not(.active) {
             background-color: #ddd;
             border-radius: 10%;
-            cursor: pointer;
         }
 
         .pagination .finished:hover {
             background-color: green !important;
+            cursor: pointer;
         }
 
         /* ----- */
-        .faceWrapper {
+         #bottom_face .faceWrapper {
             margin: 2.5%;
             width: 95%;
             height: 95%;
@@ -783,7 +784,7 @@
         }
 
         .promo button{
-            position: absolute;
+            /*position: absolute;*/
             right: 4%;
             font-size: 40px;
             color: white;
@@ -805,6 +806,40 @@
         }
         .info table:nth-child(2){
             width: 20px;
+        }
+        /*------------------*/
+        .stats{
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        .leftDiv{
+            padding: 2.5%;
+            width: 22.5%;
+            height: 95%;
+            background-color: rgb(68, 115, 197);
+        }
+        .rightDiv{
+            font-size: .75em;
+            width: 72.5%;
+            height: 100%;
+            background-color: green;
+        }
+        .rightDiv>div{
+            display: flex;
+            width: 100%;
+            height: 10%;
+            background-color: yellow;
+            margin: 0 !important;
+        }
+        .rightDiv>div div{
+            margin: 0px !important;
+            padding: 5px;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+        }
+        .rightDiv>div div:hover{
+            background-color: grey;
         }
     </style>
     <script src="cubeController.js"></script>
@@ -890,8 +925,30 @@
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="top_face" class="face">
-                <div class="faceWrapper">
-                    <button style="width: 200px; font-size: 30px;" onclick="rotateTop()">Go Down</button>
+                <div class="faceWrapper stats">
+                    <div class="leftDiv">
+                       <h4>KUBUSVRAGEN</h4>
+                       <ol>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                           <li>bla bla</li>
+                       </ol>
+                    </div>
+                    <div class="rightDiv">
+                        <div>
+                            <div>KUBUSVRAAG</div>
+                            <div>WEETJE</div>
+                            <div>ZOOMFOTO</div>
+                            <div>VIDEO</div>
+                            <div>AUDIO</div>
+                        </div>
+                    </div>
+                    <!--<button style="width: 200px; font-size: 30px;" onclick="rotateTop()">Go Down</button>-->
                 </div>
             </div>
             <div id="bottom_face" class="face">
