@@ -21,7 +21,12 @@
             /* intro animation */
 
             0% {
-                transform: rotate3d(1, 1, 0, -180deg);
+                transform: rotate3d(0, 1, 1, 180deg) translate3d(-1100px, -1100px, 1000px);
+
+            }
+
+            75% {
+                transform: translate3d(0, 0, 0px);
 
             }
 
@@ -160,6 +165,7 @@
 
             }
         }
+
         @keyframes rotate-top-1-down {
             0% {
                 transform: rotate3d(1, 0, 0, -90deg);
@@ -171,6 +177,7 @@
 
             }
         }
+
         @keyframes rotate-top-2-up {
             0% {
                 transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
@@ -182,6 +189,7 @@
 
             }
         }
+
         @keyframes rotate-top-2-down {
             0% {
                 transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
@@ -193,6 +201,7 @@
 
             }
         }
+
         @keyframes rotate-top-3-up {
             0% {
                 transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
@@ -204,6 +213,7 @@
 
             }
         }
+
         @keyframes rotate-top-3-down {
             0% {
                 transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
@@ -211,10 +221,11 @@
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 0deg)  rotate3d(0, 1, 0, -180deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
 
             }
         }
+
         @keyframes rotate-top-4-up {
             0% {
                 transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
@@ -226,6 +237,7 @@
 
             }
         }
+
         @keyframes rotate-top-4-down {
             0% {
                 transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
@@ -237,6 +249,7 @@
 
             }
         }
+
         /* ------------ bottom -----------------*/
 
         @keyframes rotate-bottom-1-up {
@@ -250,6 +263,7 @@
 
             }
         }
+
         @keyframes rotate-bottom-1-down {
             0% {
                 transform: rotate3d(1, 0, 0, 90deg);
@@ -261,74 +275,87 @@
 
             }
         }
+
         @keyframes rotate-bottom-2-up {
             0% {
-                transform: rotate3d(0, 1, 0, -90deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
 
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -90deg);
 
             }
         }
+
         @keyframes rotate-bottom-2-down {
             0% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -90deg);
 
             }
 
             100% {
-                transform: rotate3d(0, 1, 0, -90deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
 
             }
         }
+
         @keyframes rotate-bottom-3-up {
             0% {
-                transform: rotate3d(0, 1, 0, -180deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
 
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -180deg);
 
             }
         }
+
         @keyframes rotate-bottom-3-down {
             0% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -180deg);
 
             }
 
             100% {
-                transform: rotate3d(0, 1, 0, -180deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
 
             }
         }
+
         @keyframes rotate-bottom-4-up {
             0% {
-                transform: rotate3d(0, 1, 0, -270deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
 
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -270deg);
 
             }
         }
+
         @keyframes rotate-bottom-4-down {
             0% {
-                transform: rotate3d(1, 0, 0, 90deg);
+                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -270deg);
 
             }
 
             100% {
-                transform: rotate3d(0, 1, 0, -270deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
 
             }
         }
     </style>
     <style>
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
         #cube-wrapper {
             position: absolute;
             left: 50%;
@@ -338,7 +365,7 @@
 
             animation-name: fade-in;
             animation-duration: 2s;
-            animation-timing-function: linear;
+            animation-timing-function: ease-out;
             animation-fill-mode: forwards;
         }
 
@@ -347,7 +374,7 @@
             transform-style: preserve-3d;
             animation-name: rotate-0;
             animation-duration: 2s;
-            animation-timing-function: linear;
+            animation-timing-function: ease-out;
             animation-fill-mode: forwards;
         }
 
@@ -360,6 +387,11 @@
             animation-fill-mode: forwards;
         }
 
+        button, input[type=submit]{
+            outline: none;
+            cursor: pointer;
+        }
+
         @media only screen and (max-width: 1100px) {
 
             #cube-wrapper {
@@ -367,9 +399,10 @@
                 font-size: 12px;
             }
 
-            iframe {
-                width: 400px;
-                height: 225px;
+            .faceWrapper iframe {
+                top: 2.5%;
+                width: calc(400px - 5%);
+                height: calc(240px - 2.5%);
             }
 
             .face {
@@ -380,9 +413,11 @@
                 transform-origin: center;
             }
 
-            .faceWrapper{
-                width: 100%;
-                height: 100%;
+            .promo{
+                position: absolute;
+                top: 245px;
+                width: 95%;
+                height: calc(97.5% - 245px);
             }
 
             /* Transforming every face into their correct positions */
@@ -415,16 +450,17 @@
 
             #bottom_face {
                 transform: translateY(-70px) translateX(-200px) rotateX(-90deg);
-                background: rgba(255, 255, 255, 0.9);
+                background: rgb(68, 115, 197);
                 height: 395px;
             }
         }
 
         @media only screen and (min-width: 1100px) {
 
-            iframe {
-                width: 666px;
-                height: 375px;
+            .faceWrapper iframe {
+                top: 2.5%;
+                width: calc(666px - 5%);
+                height: calc(444px - 2.5%);
             }
 
             .face {
@@ -432,6 +468,16 @@
                 width: 666px;
                 height: 375px;
                 border: solid black 3px;
+            }
+
+            .promo{
+                position: absolute;
+                top: 450px;
+                width: 95%;
+                height: calc(97.5% - 450px);
+            }
+            .promo button{
+                right: 2.5% !important;
             }
 
             /* Transforming every face into their correct positions */
@@ -464,7 +510,7 @@
 
             #bottom_face {
                 transform: translateY(-57px) translateX(-333px) rotateX(-90deg);
-                background: rgba(255, 255, 255, 0.9);
+                background: rgb(68, 115, 197);
                 height: 664px;
             }
         }
@@ -645,23 +691,22 @@
             right: 5%;
         }
 
-        .goUp{
+        .goUp {
             top: 5%;
             right: 20%;
         }
 
-        .goUp img{
-            width: 25px;
+        .goUp i {
+            transform: rotate(25deg);
         }
 
-        .goDown{
+        .goDown {
             position: absolute;
             bottom: 2%;
             left: 40%;
         }
 
         iframe {
-            display: none;
             position: absolute;
             z-index: 0;
             top: 0;
@@ -719,6 +764,48 @@
         }
 
         /* ----- */
+        .faceWrapper {
+            margin: 2.5%;
+            width: 95%;
+            height: 95%;
+        }
+        .faceWrapper iframe{
+            border: 2px solid black;
+        }
+
+        .promo{
+            color: white;
+        }
+
+        .promo h4{
+            margin: 5px 0 0 5%;
+            font-size: 1.4em;
+        }
+
+        .promo button{
+            position: absolute;
+            right: 4%;
+            font-size: 40px;
+            color: white;
+        }
+
+        .promo button i{
+            transform: rotate(45deg);
+        }
+        .promo button i:active{
+            transform: rotate(45deg);
+        }
+
+        .info{
+            color: rgb(2, 39, 112);
+        }
+        .info table{
+            margin-left: 10%;
+            width: 80%;
+        }
+        .info table:nth-child(2){
+            width: 20px;
+        }
     </style>
     <script src="cubeController.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -741,15 +828,11 @@
             <div id="front_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
                 <div class="pagination"></div>
-                <button onclick="rotateTop()" class="goUp">
-                    <img src="images/stats.jpg" alt="">
-                </button>
+                <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art" src="images/nachtwacht.jpg" alt="">
-                <!---<iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                </iframe> --->
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(0)" class="check" type="submit" value="Check antwoord">
@@ -761,9 +844,7 @@
             <div id="right_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
                 <div class="pagination"></div>
-                <button onclick="rotateTop()" class="goUp">
-                    <img src="images/stats.jpg" alt="">
-                </button>
+                <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
@@ -779,9 +860,7 @@
             <div id="back_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
                 <div class="pagination"></div>
-                <button onclick="rotateTop()" class="goUp">
-                    <img src="images/stats.jpg" alt="">
-                </button>
+                <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Waar woonde Rembrandt?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
@@ -797,9 +876,7 @@
             <div id="left_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
                 <div class="pagination"></div>
-                <button onclick="rotateTop()" class="goUp">
-                    <img src="images/stats.jpg" alt="">
-                </button>
+                <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">laatse?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
@@ -818,7 +895,33 @@
                 </div>
             </div>
             <div id="bottom_face" class="face">
-                <button style="width: 200px; font-size: 30px;" onclick="rotateBottom()">Go Up</button>
+                <div class="faceWrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/2i6JN8y5VCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                    <div class="promo">
+                       <button onclick="rotateBottom()">
+                            <i class="fa fa-arrow-up"></i>
+                        </button>
+                        <h4>Bezoek het fysieke museum: Aviodrome</h4>
+                        <p>Je kortingscode is QWERTY8520 > klik op jou <a href="">ticketlink</a></p>
+                        <p>Neem contact op met:</p>
+                        <div class="info">
+                           <table>
+                               <tr>
+                                   <td>Naam:</td>
+                                   <td>Marieke de Boer (Hoofdecatie)</td>
+                               </tr>
+                               <tr>
+                                   <td>WhatsApp:</td>
+                                   <td>0610158503</td>
+                               </tr>
+                               <tr>
+                                   <td>Email:</td>
+                                   <td>M.de.Boer@Aviodrome.nl</td>
+                               </tr>
+                           </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

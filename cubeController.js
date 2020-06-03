@@ -27,7 +27,6 @@ function Rotate(right) {
     rotating = true;
     setTimeout(FinishRotating, 2000); // Disable rotating for two seconds
     var cubeStyle = document.getElementById("cube").style;
-    var topFace = document.getElementById("top_face").firstElementChild;
 
     // Turn right
     if (right == 1) {
@@ -73,9 +72,12 @@ function Rotate(right) {
     if (currentFace < 0) {
         currentFace = 3;
     }
+    var topFace    = document.getElementById("top_face").firstElementChild;
+    var bottomFace = document.getElementById("bottom_face").firstElementChild;
 
-    var rotation = currentFace * -90;
-    topFace.style.transform = "rotate(" + rotation + "deg)";
+    var rotation = currentFace * 90;
+    topFace.style.transform    = "rotate(-" + rotation + "deg)";
+    bottomFace.style.transform = "rotate(" + rotation + "deg)";
 }
 
 // Reset rotation bool
