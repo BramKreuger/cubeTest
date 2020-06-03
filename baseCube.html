@@ -2,34 +2,32 @@
 <html>
 <head>
     <title>3D Cube in PureScript</title>
-    <style>
-        #cube-wrapper {
-            position: absolute;
-            left: 50%;
-            top: 33%;
-            perspective: 1000px;
-            font-family: sans-serif, "arial"
-        }
+    <style namespace="animations">
+        @keyframes fade-in {
 
-        #cube {
-            position: relative;
-            transform-style: preserve-3d;
-            animation-name: rotate-0;
-            animation-duration: 2s;
-            animation-timing-function: linear;
-            animation-fill-mode: forwards;
+            /* intro animation */
+            0% {
+                opacity: 0;
+
+            }
+
+            100% {
+                opacity: 1;
+
+            }
         }
 
         @keyframes rotate-0 {
+            /* intro animation */
 
-            /* base animation e.g. still */
             0% {
-                transform: rotate3d(0, 1, 0, -0deg);
+                transform: rotate3d(1, 1, 0, -180deg);
+
             }
 
             100% {
                 transform: rotate3d(0, 1, 0, 0deg);
-                ;
+
             }
         }
 
@@ -51,7 +49,6 @@
 
             100% {
                 transform: rotate3d(0, 1, 0, 90deg);
-                /*controls rotation amount on one axis) */
                 ;
             }
         }
@@ -150,6 +147,210 @@
             }
         }
 
+        /* ------------ top -----------------*/
+
+        @keyframes rotate-top-1-up {
+            0% {
+                transform: rotate3d(0, 0, 0, 0deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, -90deg);
+
+            }
+        }
+        @keyframes rotate-top-1-down {
+            0% {
+                transform: rotate3d(1, 0, 0, -90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg);
+
+            }
+        }
+        @keyframes rotate-top-2-up {
+            0% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
+
+            }
+        }
+        @keyframes rotate-top-2-down {
+            0% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
+
+            }
+        }
+        @keyframes rotate-top-3-up {
+            0% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
+
+            }
+        }
+        @keyframes rotate-top-3-down {
+            0% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 0deg)  rotate3d(0, 1, 0, -180deg);
+
+            }
+        }
+        @keyframes rotate-top-4-up {
+            0% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
+
+            }
+        }
+        @keyframes rotate-top-4-down {
+            0% {
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
+
+            }
+        }
+        /* ------------ bottom -----------------*/
+
+        @keyframes rotate-bottom-1-up {
+            0% {
+                transform: rotate3d(0, 0, 0, 0deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+        }
+        @keyframes rotate-bottom-1-down {
+            0% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(0, 0, 0, 0deg);
+
+            }
+        }
+        @keyframes rotate-bottom-2-up {
+            0% {
+                transform: rotate3d(0, 1, 0, -90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+        }
+        @keyframes rotate-bottom-2-down {
+            0% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -90deg);
+
+            }
+        }
+        @keyframes rotate-bottom-3-up {
+            0% {
+                transform: rotate3d(0, 1, 0, -180deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+        }
+        @keyframes rotate-bottom-3-down {
+            0% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -180deg);
+
+            }
+        }
+        @keyframes rotate-bottom-4-up {
+            0% {
+                transform: rotate3d(0, 1, 0, -270deg);
+
+            }
+
+            100% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+        }
+        @keyframes rotate-bottom-4-down {
+            0% {
+                transform: rotate3d(1, 0, 0, 90deg);
+
+            }
+
+            100% {
+                transform: rotate3d(0, 1, 0, -270deg);
+
+            }
+        }
+    </style>
+    <style>
+        #cube-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 45%;
+            perspective: 1000px;
+            font-family: sans-serif, "arial";
+
+            animation-name: fade-in;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
+        #cube {
+            position: relative;
+            transform-style: preserve-3d;
+            animation-name: rotate-0;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+
 
         /* Size and border color for each face */
 
@@ -176,6 +377,12 @@
                 width: 400px;
                 height: 225px;
                 border: solid black 3px;
+                transform-origin: center;
+            }
+
+            .faceWrapper{
+                width: 100%;
+                height: 100%;
             }
 
             /* Transforming every face into their correct positions */
@@ -207,7 +414,7 @@
             }
 
             #bottom_face {
-                transform: translateY(-70px) translateX(-200px) rotateX(90deg);
+                transform: translateY(-70px) translateX(-200px) rotateX(-90deg);
                 background: rgba(255, 255, 255, 0.9);
                 height: 395px;
             }
@@ -256,7 +463,7 @@
             }
 
             #bottom_face {
-                transform: translateY(-57px) translateX(-333px) rotateX(90deg);
+                transform: translateY(-57px) translateX(-333px) rotateX(-90deg);
                 background: rgba(255, 255, 255, 0.9);
                 height: 664px;
             }
@@ -283,7 +490,8 @@
             margin-top: 5px;
             margin-left: 5px;
         }
-        .mask{
+
+        .mask {
             top: 0;
             right: 0;
             height: 100%;
@@ -316,8 +524,8 @@
         input[type=submit] {
             position: absolute;
             background: rgb(255, 255, 255, .5);
-            width: 33%;
-            margin-left: 15%;
+            width: 30%;
+            margin-left: 10%;
             bottom: 2%;
             border: none !important;
         }
@@ -437,6 +645,21 @@
             right: 5%;
         }
 
+        .goUp{
+            top: 5%;
+            right: 20%;
+        }
+
+        .goUp img{
+            width: 25px;
+        }
+
+        .goDown{
+            position: absolute;
+            bottom: 2%;
+            left: 40%;
+        }
+
         iframe {
             display: none;
             position: absolute;
@@ -444,14 +667,14 @@
             top: 0;
         }
 
-        .logo{
+        .logo {
             position: absolute;
             width: 25px;
             top: 2%;
             left: 2%;
         }
 
-        .counter{
+        .counter {
             position: absolute;
             top: 2%;
             left: 5%;
@@ -484,14 +707,17 @@
             background-color: rgb(164, 52, 235) !important;
             color: white !important;
         }
+
         .pagination p:hover:not(.active) {
             background-color: #ddd;
             border-radius: 10%;
             cursor: pointer;
         }
-        .pagination .finished:hover{
+
+        .pagination .finished:hover {
             background-color: green !important;
         }
+
         /* ----- */
     </style>
     <script src="cubeController.js"></script>
@@ -515,6 +741,9 @@
             <div id="front_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
                 <div class="pagination"></div>
+                <button onclick="rotateTop()" class="goUp">
+                    <img src="images/stats.jpg" alt="">
+                </button>
                 <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
@@ -525,27 +754,35 @@
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(0)" class="check" type="submit" value="Check antwoord">
                 </form>
+                <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="right_face" class="face face-glow">
-              <p class="counter">1 / 5 - 35</p>
-              <div class="pagination"></div>
-               <img class="logo" src="images/KUBUS_paars.png" alt="">
+                <p class="counter">1 / 5 - 35</p>
+                <div class="pagination"></div>
+                <button onclick="rotateTop()" class="goUp">
+                    <img src="images/stats.jpg" alt="">
+                </button>
+                <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
-                <img class="art"  src="images/meisje_aan_het_venster.jpg" alt="">
+                <img class="art" src="images/meisje_aan_het_venster.jpg" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(1)" class="check" type="submit" value="Check antwoord">
                 </form>
+                <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="back_face" class="face face-glow">
-              <p class="counter">1 / 5 - 35</p>
-              <div class="pagination"></div>
-               <img class="logo" src="images/KUBUS_paars.png" alt="">
+                <p class="counter">1 / 5 - 35</p>
+                <div class="pagination"></div>
+                <button onclick="rotateTop()" class="goUp">
+                    <img src="images/stats.jpg" alt="">
+                </button>
+                <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Waar woonde Rembrandt?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
                 <img class="art" src="images/melk_meisje.jpg" alt="">
@@ -553,27 +790,36 @@
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(2)" class="check" type="submit" value="Check antwoord">
                 </form>
+                <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="left_face" class="face face-glow">
-              <p class="counter">1 / 5 - 35</p>
-              <div class="pagination"></div>
-               <img class="logo" src="images/KUBUS_paars.png" alt="">
+                <p class="counter">1 / 5 - 35</p>
+                <div class="pagination"></div>
+                <button onclick="rotateTop()" class="goUp">
+                    <img src="images/stats.jpg" alt="">
+                </button>
+                <img class="logo" src="images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">laatse?</h3>
                 <img class="mask" src="images/mask.png" alt="mask">
-                <img class="art"  src="images/frans.jpg" alt="">
+                <img class="art" src="images/frans.jpg" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
                     <input onclick="CheckCorrect(3)" class="check" type="submit" value="Check antwoord">
                 </form>
+                <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
                 <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
-            <div id="top_face" class="face"></div>
-            <div id="bottom_face" class="face"></div>
+            <div id="top_face" class="face">
+                <div class="faceWrapper">
+                    <button style="width: 200px; font-size: 30px;" onclick="rotateTop()">Go Down</button>
+                </div>
+            </div>
+            <div id="bottom_face" class="face">
+                <button style="width: 200px; font-size: 30px;" onclick="rotateBottom()">Go Up</button>
+            </div>
         </div>
     </div>
-</body>
-
-</html>
+</body></html>

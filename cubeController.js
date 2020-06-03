@@ -4,6 +4,8 @@ var nrOfQuestions = 0;
 var questionsInstance; // Saves all the questions and answers in a class instance
 var rotating = false;
 var selectedAnswers; // Saves all the selected answers in an array of integers
+var rotTop = "up";
+var rotBottom = "up";
 document.onload = LoadXMLDoc();
 // 1 IS RIGHT, -1 IS LEFT
 
@@ -25,6 +27,7 @@ function Rotate(right) {
     rotating = true;
     setTimeout(FinishRotating, 2000); // Disable rotating for two seconds
     var cubeStyle = document.getElementById("cube").style;
+    var topFace = document.getElementById("top_face").firstElementChild;
 
     // Turn right
     if (right == 1) {
@@ -70,6 +73,9 @@ function Rotate(right) {
     if (currentFace < 0) {
         currentFace = 3;
     }
+
+    var rotation = currentFace * -90;
+    topFace.style.transform = "rotate(" + rotation + "deg)";
 }
 
 // Reset rotation bool
@@ -279,7 +285,7 @@ function ChangePaginator(question, right) {
             for (var j = 0; j < nrOfQuestions + 1; j++) {
                 (function (j) {
                     var page = document.createElement("P");
-                    page.addEventListener("click", function () {
+                    page.addEventListener("click", function () { // Bind the onclick with param to the P
                         moveToFace(j);
                     });
                     page.innerHTML = "-";
@@ -292,7 +298,7 @@ function ChangePaginator(question, right) {
         for (var i = 0; i < 4; i++) {
             pagers[i].children[question].classList.add("active");
         }
-    } else {
+    } else { // You turned left or right
         for (var i = 0; i < 4; i++) {
             var prev = right * -1;
             pagers[i].children[currentQuestion + prev].classList.remove("active");
@@ -307,18 +313,42 @@ function moveToFace(toFace) {
         var pagers = document.getElementsByClassName("pagination");
         var newFace = pagers[currentFace].children[toFace];
 
-        if (newFace.classList.contains("finished")) {
+        if (newFace.classList.contains("finished")) { // Of it's legal to turn
             var distance = toFace - currentQuestion;
             var right = 1; //go right
-            if (distance < 0) {
+            if (distance < 0) { // If you are rotating left
                 distance = distance * -1;
                 right = -1;
             }
-            for (var i = 0; i < distance; i++) {
+            for (var i = 0; i < distance; i++) { // Que the rotation functions
                 setTimeout(function () {
                     Rotate(right);
                 }, 2000 * i);
             }
         }
+    }
+}
+
+function rotateTop(){
+    var cube     = document.getElementById("cube");
+    var animName = "rotate-top-" + (currentFace + 1) + "-" + rotTop;
+    cube.style.animationName = animName;
+    console.log(animName);
+    if(rotTop == "up"){
+        rotTop = "down";
+    }
+    else{
+        rotTop = "up";
+    }
+}
+function rotateBottom(){
+    var cube     = document.getElementById("cube");
+    var animName = "rotate-bottom-" + (currentFace + 1) + "-" + rotBottom;
+    cube.style.animationName = animName;
+    if(rotBottom == "up"){
+        rotBottom = "down";
+    }
+    else{
+        rotBottom = "up";
     }
 }
