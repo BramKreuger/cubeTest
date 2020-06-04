@@ -1,0 +1,147 @@
+:root{
+    --purple: rgb(164, 52, 235);
+}
+
+html,
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#cube-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    perspective: 1000px;
+    font-family: sans-serif, "arial";
+
+    animation-name: fade-in;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+#cube {
+    position: relative;
+    transform-style: preserve-3d;
+    animation-name: rotate-0;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+
+/* Size and border color for each face */
+
+.face-glow {
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+button,
+input[type=submit] {
+    outline: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px), (max-height: 1025px){
+
+    #cube-wrapper {
+        top: 50%;
+        font-size: 12px;
+    }
+
+    .face {
+        position: absolute;
+        width: 400px;
+        height: 225px;
+        border: solid black 3px;
+        transform-origin: center;
+    }
+
+
+
+    /* Transforming every face into their correct positions */
+
+    #front_face {
+        transform: translateX(-200px) translateY(-100px) translateZ(200px);
+        background: rgba(255, 0, 0, 0.9);
+    }
+
+    #back_face {
+        transform: translateX(-200px) translateY(-100px) translateZ(-200px) rotateY(180deg);
+        background: rgba(255, 0, 255, 0.9);
+    }
+
+    #right_face {
+        transform: translateY(-100px) rotateY(90deg);
+        background: rgba(255, 255, 0, 0.9);
+    }
+
+    #left_face {
+        transform: translateY(-100px) translateX(-400px) rotateY(-90deg);
+        background: rgba(0, 255, 0, 0.9);
+    }
+
+    #top_face {
+        transform: translateX(-200px) translateY(-300px) rotateX(90deg);
+        background: white;
+        height: 400px;
+    }
+
+    #bottom_face {
+        transform: translateY(-75px) translateX(-200px) rotateX(-90deg);
+        background: rgb(117, 113, 112);
+        height: 400px;
+    }
+}
+
+@media only screen and (min-width: 1100px) and (min-height: 1025px){
+
+    .face {
+        position: absolute;
+        width: 666px;
+        height: 375px;
+        border: solid black 3px;
+    }
+
+    /* Transforming every face into their correct positions */
+
+    #front_face {
+        transform: translateX(-333px) translateY(-100px) translateZ(333px);
+        background: rgba(255, 0, 0, 0.9);
+    }
+
+    #back_face {
+        transform: translateX(-333px) translateY(-100px) translateZ(-333px) rotateY(180deg);
+        background: rgba(255, 0, 255, 0.9);
+    }
+
+    #right_face {
+        transform: translateY(-100px) rotateY(90deg);
+        background: rgba(255, 255, 0, 0.9);
+    }
+
+    #left_face {
+        transform: translateY(-100px) translateX(-666px) rotateY(-90deg);
+        background: rgba(0, 255, 0, 0.9);
+    }
+
+    #top_face {
+        transform: translateX(-333px) translateY(-435px) rotateX(90deg);
+        background: white;
+        height: 664px;
+    }
+
+    #bottom_face {
+        transform: translateY(-57px) translateX(-333px) rotateX(-90deg);
+        background: rgb(117, 113, 112);
+        height: 664px;
+    }
+}
+
+#cube {
+    transform: rotateX(90deg) rotateY(90deg);
+}
