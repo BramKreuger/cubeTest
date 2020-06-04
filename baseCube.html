@@ -156,97 +156,84 @@
 
         @keyframes rotate-top-1-up {
             0% {
-                transform: rotate3d(0, 0, 0, 0deg);
+                transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
 
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, -90deg);
+                transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
 
             }
         }
 
         @keyframes rotate-top-1-down {
             0% {
-                transform: rotate3d(1, 0, 0, -90deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
             }
 
             100% {
-                transform: rotate3d(0, 0, 0, 0deg);
-
+                transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
             }
         }
 
         @keyframes rotate-top-2-up {
             0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
 
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
             }
         }
 
         @keyframes rotate-top-2-down {
             0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
-
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
             }
         }
 
         @keyframes rotate-top-3-up {
             0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
-
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
             }
         }
 
         @keyframes rotate-top-3-down {
             0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
-
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
             }
         }
 
         @keyframes rotate-top-4-up {
             0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
-
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg) translateZ(0px);
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg) translateY(-200px);
             }
         }
 
         @keyframes rotate-top-4-down {
             0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
-
+                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg) translateY(-200px);
             }
 
             100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
-
+                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg) translateZ(0px);
             }
         }
 
@@ -948,7 +935,7 @@
                             <div>AUDIO</div>
                         </div>
                     </div>
-                    <!--<button style="width: 200px; font-size: 30px;" onclick="rotateTop()">Go Down</button>-->
+                    <button style="width: 200px; font-size: 30px;" onclick="rotateTop()">Go Down</button>
                 </div>
             </div>
             <div id="bottom_face" class="face">
