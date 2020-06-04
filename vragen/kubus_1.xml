@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Dit is duidelijk een andere vraag!">
+		<image>nachtwacht</image>
+			<antwoorden>
+				<antwoord>
+					<text>Maar dit is geen vraag..</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet zo moeilijk doen joh</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Frans Hals</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Picasso</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="De antwoorden zijn nog wel het zelfde, maar boeie..">
+		<image>meisje_venster</image>
+			<antwoorden>
+				<antwoord>
+					<text>bla bla</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>1780</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>1910</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>1642</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Dit kun je dus vrij makkelijk reproduceren">
+		<image>melkmeisje</image>
+			<antwoorden>
+				<antwoord>
+					<text>een meisje</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>een pop</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>dat weten we niet</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>de vrouw van vermeer</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Nu nog een extra makkelijke manier om de xml te editen">
+		<image>frans_hals</image>
+			<antwoorden>
+				<antwoord>
+					<text>Haarlem</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Den Haag</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Zwolle</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Leiden</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Laatste vraag!">
+		<image>melkmeisje</image>
+			<antwoorden>
+				<antwoord>
+					<text>antw 4 1</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 2</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 3</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>antw 4 4</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

@@ -29,7 +29,7 @@ function loadPage(){
 
         if(Number.isInteger(id)){
             console.log("Yes the parameter passed to \'kubus\' is an integer, with value: " + id);
-            LoadXMLDoc();
+            LoadXMLDoc(id);
         }
         else{
             alert("Parameter passed to \"?kubus=\" is incorrect. Please make sure the URL looks like this:       \"https://bramkreuger.com/cube?kubus=0\"");
@@ -194,7 +194,7 @@ function AddQuestion(questionNr, answerNr, text) {
 }
 
 // Load XML from URL
-function LoadXMLDoc() {
+function LoadXMLDoc(id) {
     var xmlhttp;
     if (window.XMLHttpRequest) {
         xmlhttp = new XMLHttpRequest();
@@ -204,10 +204,15 @@ function LoadXMLDoc() {
     }
     xmlhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
+            console.log("The XML was loaded");
             ParseXML(this.responseXML)
         }
+        else if(this.readyState == 4 && this.status == ""){;
+            alert("The integer you passed as parameter is not valid. You passed: " + id);
+        }
     };
-    xmlhttp.open("GET", "https://bramkreuger.com/cube/vragen.xml", true);
+    var url = "https://bramkreuger.com/cube/vragen/kubus_" + id + ".xml"
+    xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
 
