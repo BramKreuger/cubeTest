@@ -2,511 +2,38 @@
 <html>
 <head>
     <title>3D Cube in PureScript</title>
-    <style namespace="animations">
-        @keyframes fade-in {
+    <style namespace="mediaQueries">
+        /* KLEIN */
+        @media only screen and (max-width: 1100px), (max-height: 1025px){
 
-            /* intro animation */
-            0% {
-                opacity: 0;
-
+            #bottom_face .faceWrapper iframe {
+                width: calc(400px - 5%);
+                height: 225px;
             }
 
-            100% {
-                opacity: 1;
-
-            }
-        }
-
-        @keyframes rotate-0 {
-            /* intro animation */
-
-            0% {
-                transform: rotate3d(0, 1, 1, 180deg) translate3d(-1100px, -1100px, 1000px);
-
-            }
-
-            75% {
-                transform: translate3d(0, 0, 0px);
-
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, 0deg);
-
+            .promo {
+                flex: 1;
+                width: 95%;
+                height: calc(97.5% - 245px);
             }
         }
+        /* GROOT */
+        @media only screen and (min-width: 1100px) and (min-height: 1025px) {
 
-        @keyframes rotate-1-right {
-            0% {
-                transform: rotate3d(0, 0, 0, 0);
+            #bottom_face .faceWrapper iframe {
+                width: calc(660px - 5%);
+                height: 400px;
             }
 
-            100% {
-                transform: rotate3d(0, 1, 0, -90deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-1-left {
-            0% {
-                transform: rotate3d(0, 0, 0, 0);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, 90deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-2-right {
-            0% {
-                transform: rotate3d(0, 1, 0, -90deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, -180deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-2-left {
-            0% {
-                transform: rotate3d(0, 1, 0, -90deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, 0deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-3-right {
-            0% {
-                transform: rotate3d(0, 1, 0, -180deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, -270deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-3-left {
-            0% {
-                transform: rotate3d(0, 1, 0, -180deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, -90deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-4-right {
-            0% {
-                transform: rotate3d(0, 1, 0, -270deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, -360deg);
-                ;
-            }
-        }
-
-        @keyframes rotate-4-left {
-            0% {
-                transform: rotate3d(0, 1, 0, -270deg);
-            }
-
-            100% {
-                transform: rotate3d(0, 1, 0, -180deg);
-                ;
-            }
-        }
-
-        @keyframes glow-red {
-            0% {
-                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, 0);
-            }
-
-            25% {
-                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, .9);
-            }
-
-            100% {
-                box-shadow: 0px 0px 40px 20px rgb(252, 3, 40, 0);
-            }
-        }
-
-        @keyframes glow-green {
-            0% {
-                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, 0);
-            }
-
-            25% {
-                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, .9);
-            }
-
-            100% {
-                box-shadow: 0px 0px 40px 20px rgb(3, 252, 69, 0);
-            }
-        }
-
-        /* ------------ top -----------------*/
-
-        @keyframes rotate-top-1-up {
-            0% {
-                transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
-
-            }
-        }
-
-        @keyframes rotate-top-1-down {
-            0% {
-                transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
-            }
-
-            100% {
-                transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
-            }
-        }
-
-        @keyframes rotate-top-2-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
-            }
-        }
-
-        @keyframes rotate-top-2-down {
-            0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
-            }
-        }
-
-        @keyframes rotate-top-3-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
-            }
-        }
-
-        @keyframes rotate-top-3-down {
-            0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
-            }
-        }
-
-        @keyframes rotate-top-4-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg) translateZ(0px);
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg) translateY(-200px);
-            }
-        }
-
-        @keyframes rotate-top-4-down {
-            0% {
-                transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg) translateY(-200px);
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg) translateZ(0px);
-            }
-        }
-
-        /* ------------ bottom -----------------*/
-
-        @keyframes rotate-bottom-1-up {
-            0% {
-                transform: rotate3d(0, 0, 0, 0deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 90deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-1-down {
-            0% {
-                transform: rotate3d(1, 0, 0, 90deg);
-
-            }
-
-            100% {
-                transform: rotate3d(0, 0, 0, 0deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-2-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -90deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-2-down {
-            0% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -90deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-3-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -180deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-3-down {
-            0% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -180deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-4-up {
-            0% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -270deg);
-
-            }
-        }
-
-        @keyframes rotate-bottom-4-down {
-            0% {
-                transform: rotate3d(1, 0, 0, 90deg) rotate3d(0, 1, 0, -270deg);
-
-            }
-
-            100% {
-                transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
-
+            .promo {
+                /*position: absolute;*/
+                flex: 1;
+                width: 95%;
+                height: calc(97.5% - 450px);
             }
         }
     </style>
     <style>
-        html,
-        body {
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-        }
-
-        #cube-wrapper {
-            position: absolute;
-            left: 50%;
-            top: 45%;
-            perspective: 1000px;
-            font-family: sans-serif, "arial";
-
-            animation-name: fade-in;
-            animation-duration: 2s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-        }
-
-        #cube {
-            position: relative;
-            transform-style: preserve-3d;
-            animation-name: rotate-0;
-            animation-duration: 2s;
-            animation-timing-function: ease-out;
-            animation-fill-mode: forwards;
-        }
-
-
-        /* Size and border color for each face */
-
-        .face-glow {
-            animation-duration: 1s;
-            animation-timing-function: ease;
-            animation-fill-mode: forwards;
-        }
-
-        button, input[type=submit]{
-            outline: none;
-            cursor: pointer;
-        }
-
-        @media only screen and (max-width: 1100px) {
-
-            #cube-wrapper {
-                top: 50%;
-                font-size: 12px;
-            }
-
-            #bottom_face .faceWrapper iframe {
-                top: 2.5%;
-                width: calc(400px - 5%);
-                height: calc(240px - 2.5%);
-            }
-
-            .face {
-                position: absolute;
-                width: 400px;
-                height: 225px;
-                border: solid black 3px;
-                transform-origin: center;
-            }
-
-            .promo{
-                position: absolute;
-                top: 245px;
-                width: 95%;
-                height: calc(97.5% - 245px);
-            }
-
-            /* Transforming every face into their correct positions */
-
-            #front_face {
-                transform: translateX(-200px) translateY(-100px) translateZ(200px);
-                background: rgba(255, 0, 0, 0.9);
-            }
-
-            #back_face {
-                transform: translateX(-200px) translateY(-100px) translateZ(-200px) rotateY(180deg);
-                background: rgba(255, 0, 255, 0.9);
-            }
-
-            #right_face {
-                transform: translateY(-100px) rotateY(90deg);
-                background: rgba(255, 255, 0, 0.9);
-            }
-
-            #left_face {
-                transform: translateY(-100px) translateX(-400px) rotateY(-90deg);
-                background: rgba(0, 255, 0, 0.9);
-            }
-
-            #top_face {
-                transform: translateX(-200px) translateY(-300px) rotateX(90deg);
-                background: white;
-                height: 400px;
-            }
-
-            #bottom_face {
-                transform: translateY(-75px) translateX(-200px) rotateX(-90deg);
-                background: rgb(68, 115, 197);
-                height: 400px;
-            }
-        }
-
-        @media only screen and (min-width: 1100px) {
-
-            #bottom_face .faceWrapper iframe {
-                top: 2.5%;
-                left: 2.5%;
-                width: calc(666px - 5%);
-                height: calc(444px - 2.5%);
-            }
-
-            .face {
-                position: absolute;
-                width: 666px;
-                height: 375px;
-                border: solid black 3px;
-            }
-
-            .promo{
-                /*position: absolute;*/
-                top: 450px;
-                width: 95%;
-                height: calc(97.5% - 450px);
-            }
-            .promo button{
-                right: 0 !important;
-            }
-
-            /* Transforming every face into their correct positions */
-
-            #front_face {
-                transform: translateX(-333px) translateY(-100px) translateZ(333px);
-                background: rgba(255, 0, 0, 0.9);
-            }
-
-            #back_face {
-                transform: translateX(-333px) translateY(-100px) translateZ(-333px) rotateY(180deg);
-                background: rgba(255, 0, 255, 0.9);
-            }
-
-            #right_face {
-                transform: translateY(-100px) rotateY(90deg);
-                background: rgba(255, 255, 0, 0.9);
-            }
-
-            #left_face {
-                transform: translateY(-100px) translateX(-666px) rotateY(-90deg);
-                background: rgba(0, 255, 0, 0.9);
-            }
-
-            #top_face {
-                transform: translateX(-333px) translateY(-435px) rotateX(90deg);
-                background: white;
-                height: 666px;
-            }
-
-            #bottom_face {
-                transform: translateY(-57px) translateX(-333px) rotateX(-90deg);
-                background: rgb(68, 115, 197);
-                height: 664px;
-            }
-        }
-
-        #cube {
-            transform: rotateX(90deg) rotateY(90deg);
-        }
-
         /* content of the faces */
 
         h3 {
@@ -565,7 +92,7 @@
         }
 
         input[type=submit]:hover {
-            color:  rgb(164, 52, 235);
+            color: rgb(164, 52, 235);
             border: none !important;
         }
 
@@ -661,7 +188,7 @@
         }
 
         .face button i:hover {
-            color: rgb(164, 52, 235);
+            color: var(--purple);
         }
 
         .face button:active {
@@ -685,7 +212,7 @@
         }
 
         .goUp i {
-            transform: rotate(25deg);
+            transform: rotate(35deg);
         }
 
         .goDown {
@@ -695,9 +222,7 @@
         }
 
         iframe {
-            position: absolute;
             z-index: 0;
-            top: 0;
         }
 
         .logo {
@@ -737,7 +262,7 @@
         .pagination p.active {
             border: 1px solid black !important;
             border-radius: 30% !important;
-            background-color: rgb(164, 52, 235) !important;
+            background-color: var(--purple) !important;
             color: white !important;
         }
 
@@ -752,85 +277,100 @@
         }
 
         /* ----- */
-         #bottom_face .faceWrapper {
+        #bottom_face .faceWrapper {
             margin: 2.5%;
             width: 95%;
             height: 95%;
+            display: flex;
+            flex-direction: column;
         }
-        .faceWrapper iframe{
+
+        .faceWrapper iframe {
             border: 2px solid black;
         }
 
-        .promo{
+        .promo {
             color: white;
         }
 
-        .promo h4{
+        .promo h4 {
             margin: 5px 0 0 5%;
             font-size: 1.4em;
         }
 
-        .promo button{
-            /*position: absolute;*/
-            right: 4%;
+        .promo button {
+            right: 7px;
+            top: -5px;
+            margin-right: 15px;
             font-size: 40px;
             color: white;
         }
 
-        .promo button i{
-            transform: rotate(45deg);
-        }
-        .promo button i:active{
+        .promo button i {
             transform: rotate(45deg);
         }
 
-        .info{
-            color: rgb(2, 39, 112);
+        .promo button i:active {
+            transform: rotate(45deg);
         }
-        .info table{
+
+        .info {
+            color: rgb(224, 201, 147);
+        }
+
+        .info table {
             margin-left: 10%;
             width: 80%;
         }
-        .info table:nth-child(2){
+
+        .info table:nth-child(2) {
             width: 20px;
         }
+
         /*------------------*/
-        .stats{
+        .stats {
             width: 100%;
             height: 100%;
             display: flex;
         }
-        .leftDiv{
+
+        .leftDiv {
             padding: 2.5%;
             width: 22.5%;
             height: 95%;
             background-color: rgb(68, 115, 197);
         }
-        .rightDiv{
+
+        .rightDiv {
             font-size: .75em;
             width: 72.5%;
             height: 100%;
             background-color: green;
         }
-        .rightDiv>div{
+
+        .rightDiv>div {
             display: flex;
             width: 100%;
             height: 10%;
             background-color: yellow;
             margin: 0 !important;
         }
-        .rightDiv>div div{
+
+        .rightDiv>div div {
             margin: 0px !important;
             padding: 5px;
             width: calc(100% - 10px);
             height: calc(100% - 10px);
         }
-        .rightDiv>div div:hover{
+
+        .rightDiv>div div:hover {
             background-color: grey;
         }
     </style>
-    <script src="cubeController.js"></script>
+    <script src="js/cubeController.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/3d_animations.css">
+    <link rel="stylesheet" href="styles/cube.css">
     <link rel="shortcut icon" href="#" />
 </head>
 
@@ -914,17 +454,17 @@
             <div id="top_face" class="face">
                 <div class="faceWrapper stats">
                     <div class="leftDiv">
-                       <h4>KUBUSVRAGEN</h4>
-                       <ol>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                           <li>bla bla</li>
-                       </ol>
+                        <h4>KUBUSVRAGEN</h4>
+                        <ol>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                            <li>bla bla</li>
+                        </ol>
                     </div>
                     <div class="rightDiv">
                         <div>
@@ -940,31 +480,31 @@
             </div>
             <div id="bottom_face" class="face">
                 <div class="faceWrapper">
-                    <iframe src="https://www.youtube-nocookie.com/embed/2i6JN8y5VCc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
                     <div class="promo">
-                       <button onclick="rotateBottom()">
+                        <button onclick="rotateBottom()">
                             <i class="fa fa-arrow-up"></i>
                         </button>
-                        <h4>Bezoek het fysieke museum: Aviodrome</h4>
-                        <p>Je kortingscode is QWERTY8520 > klik op jou <a href="">ticketlink</a></p>
-                        <p>Neem contact op met:</p>
+                        <h4>BEZOEK HET RIJKSMUSEUM</h4>
+                        <p>Tickets <a href="https://www.rijksmuseum.nl/nl/tickets/artikelen">https://www.rijksmuseum.nl/nl/tickets/artikelen</a></p>
+                        <p>Docenten kunnen contact opnemen met:</p>
                         <div class="info">
-                           <table>
-                               <tr>
-                                   <td>Naam:</td>
-                                   <td>Marieke de Boer (Hoofdecatie)</td>
-                               </tr>
-                               <tr>
-                                   <td>WhatsApp:</td>
-                                   <td>0610158503</td>
-                               </tr>
-                               <tr>
-                                   <td>Email:</td>
-                                   <td>M.de.Boer@Aviodrome.nl</td>
-                               </tr>
-                           </table>
+                            <table>
+                                <tr>
+                                    <td>Naam:</td>
+                                    <td>Thijs (educatie)</td>
+                                </tr>
+                                <tr>
+                                    <td>WhatsApp:</td>
+                                    <td>0610158503</td>
+                                </tr>
+                                <tr>
+                                    <td>Email:</td>
+                                    <td>Thijs@rijksmuseum.nl</td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
+                    <iframe src="https://www.youtube.com/embed/AOqdCNjq-x0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
