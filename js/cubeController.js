@@ -6,17 +6,57 @@ var rotating = false;
 var selectedAnswers; // Saves all the selected answers in an array of integers
 var rotTop = "up";
 var rotBottom = "up";
-document.onload = LoadXMLDoc();
 // 1 IS RIGHT, -1 IS LEFT
 
 // This changes everything
 "use strict";
 
+document.onload = setTimeout(function(){loadPage(0)}, 100);
+
+// This function checks the parameters passed to the URL and loads the corresponding xml :)
+function loadPage(){
+    var params = location.href.split('?')[1].split('&');
+    data = {};
+    for (x in params)
+    {
+        data[params[x].split('=')[0]] = params[x].split('=')[1];
+
+    }
+
+    if(data.kubus != undefined){
+
+        var id = TryParseInt(data.kubus, null);
+
+        if(Number.isInteger(id)){
+            console.log("Yes the parameter passed to \'kubus\' is an integer, with value: " + id);
+            LoadXMLDoc();
+        }
+        else{
+            alert("Parameter passed to \"?kubus=\" is incorrect. Please make sure the URL looks like this:       \"https://bramkreuger.com/cube?kubus=0\"");
+        }
+    }
+    else{
+        alert("Could not find \"?kubus=\" in url. Please add \"?kubus=<integer>\" to the url");
+    }
+}
+
+function TryParseInt(str,defaultValue) {
+     var retValue = defaultValue;
+     if(str !== null) {
+         if(str.length > 0) {
+             if (!isNaN(str)) {
+                 retValue = parseInt(str);
+             }
+         }
+     }
+     return retValue;
+}
+
 function TurnLeft() {
     if (rotating == false && currentQuestion > 0) {
         Rotate(-1);
     }
-}
+} // <-- Nodig
 
 function Rotate(right) {
     SaveAnswer(); //Save answer by putting current bool in array
@@ -172,8 +212,9 @@ function LoadXMLDoc() {
 }
 
 class Vraag {
-    constructor(_vraag, _antwoorden) {
+    constructor(_vraag, _image, _antwoorden) {
         this.vraag = _vraag;
+        this.image = _image;
         this.antwoorden = _antwoorden;
     }
 }
@@ -188,6 +229,7 @@ class Antwoord {
 // Stick the XML data in more managable classes
 function ParseXML(xml) {
     var questions = xml.getElementsByTagName("vraag_en_antwoord");
+    var images    = xml.getElementsByTagName("image");
     nrOfQuestions = questions.length - 1;
     var vragen = new Array(questions.length);
     for (var i = 0; i < questions.length; i++) {
@@ -198,7 +240,9 @@ function ParseXML(xml) {
             var correct = (antwoordenXML[j].childNodes[3].textContent == 'true');
             antwoorden[j] = new Antwoord(text, correct);
         }
-        vragen[i] = new Vraag(questions[i].getAttribute("vraag"), antwoorden)
+        var image = new Image(); // Make sure to preload the images.
+        image.src = "https://bramkreuger.com/cube/images/" + images[i].textContent + ".jpg";
+        vragen[i] = new Vraag(questions[i].getAttribute("vraag"), image, antwoorden)
     }
     questionsInstance = vragen;
     ChangeQuestions(0)
@@ -229,9 +273,12 @@ function ChangeQuestions(right) {
     RemoveQuestions(newFace);
 
     var titles = document.getElementsByClassName("vraag");
-    var forms = document.getElementsByClassName("cubeForm");
+    var forms  = document.getElementsByClassName("cubeForm");
+    var images = document.getElementsByClassName("art");
 
     titles[newFace].innerHTML = questionsInstance[currentQuestion].vraag;
+    images[newFace].src   =     questionsInstance[currentQuestion].image.src;
+
     for (var j = 0; j < questionsInstance[currentQuestion].antwoorden.length; j++) {
         AddQuestion(newFace, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
     }
