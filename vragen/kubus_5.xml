@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="De kinderen op dit schilderij doen dingen waar ze eigenlijk te jong voor zijn. Wat was voor jonge kinderen in die tijd normaal om te drinken?">
+		<image>het_vrolijke_huisgezin</image>
+			<antwoorden>
+				<antwoord>
+					<text>Wijn</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Bier</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Energie drank</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Waarom zitten er op het handvat van het glas noppen?">
+		<image>het_vrolijke_huisgezin</image>
+			<antwoorden>
+				<antwoord>
+					<text>Voor de sier</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Voor een betere greep</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Om beschadigingen te verbergen</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

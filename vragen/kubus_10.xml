@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Er is een houten achterwand te zien op het schilderij.">
+		<image>de_nachtwacht</image>
+			<antwoorden>
+				<antwoord>
+					<text>Waar</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet waar</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Er staat een hoofd geschilderd op de krans aan de achterwand.">
+		<image>de_nachtwacht</image>
+			<antwoorden>
+				<antwoord>
+					<text>Waar</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet waar</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Bij de vlag begint een boog">
+		<image>de_nachtwacht</image>
+			<antwoorden>
+				<antwoord>
+					<text>Waar</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet waar</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Er staat 1 meisje op het schilderij">
+		<image>de_nachtwacht</image>
+			<antwoorden>
+				<antwoord>
+					<text>Waar</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet waar</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Op het schilderij zijn vooral de drie primaire kleuren aanwezig, welke kleuren vallen vooral op?">
+		<image>het_melkmeisje</image>
+			<antwoorden>
+				<antwoord>
+					<text>Blauw, geel, rood</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text> Groen, geel, blauw</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Blauw, rood, groen</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wat is het beroep van het meisje?">
+		<image>het_melkmeisje</image>
+			<antwoorden>
+				<antwoord>
+					<text>Dienstmeisje</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Kok</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Melkmeisje</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag=" Het meisje staat in een soort kelder. Kijk goed rond. Wat zie je hier niet?">
+		<image>het_melkmeisje</image>
+			<antwoorden>
+				<antwoord>
+					<text>Kapotte ruit</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Een muis</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Spijkergaatjes in de muur</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>17e eeuwse voetenwarmer</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

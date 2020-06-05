@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Wie heeft besloten dat Willem II en Maria gingen trouwen in 1641?">
+		<image>willem_ii_en_maria_stuart</image>
+			<antwoorden>
+				<antwoord>
+					<text>Zij zelf</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Hun moeders</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Hun vaders</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

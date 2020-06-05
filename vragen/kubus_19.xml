@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="In het midden van het schilderij staat een man op een ton. Welk instrument speelt hij?">
+		<image>boerenkermis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Dwarsfluit</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Saxofoon</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Doedelzak</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Waarom kan de man voor op het schilderij waarschijnlijk niet meer op zijn benen staan?">
+		<image>boerenkermis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Hij is gestruikeld</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Hij heeft teveel bier gedronken</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Hij wordt omver geduwd door de vrouw naast hem</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wie was voor dit feest uitgenodigd?">
+		<image>boerenkermis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Iedereen uit het dorp</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Alleen de rijke mensen</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Alleen de arme mensen</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="In de Gouden Eeuw zijn er weinig schilderijen gemaakt waar arme mensen op te zien zijn. In het Rijksmuseum zijn vooral mensen te zien die veel geld hadden. Wat is de reden?">
+		<image>boerenkermis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Een schilderij laten maken was heel duur</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Arme mensen hadden geen interesse in kunst</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Het Rijksmuseum verzamelt alleen schilderijen met rijke mensen</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

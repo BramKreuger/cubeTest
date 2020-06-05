@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Wat is belangrijk bij het vinden van de juiste persoon om mee te trouwen volgens de normen van de rijke mensen in de Gouden Eeuw?">
+		<image>het_joodse_bruidje</image>
+			<antwoorden>
+				<antwoord>
+					<text>Liefde</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Rijkdom</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Humor</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Het is bekend dat Rembrandt vaak experimenteerde in zijn schilderijen en tekeningen. Waarmee schilderde hij ook wel eens?">
+		<image>het_joodse_bruidje</image>
+			<antwoorden>
+				<antwoord>
+					<text>Met zijn vingers</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Met een verfroller</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Met de achterkant van zijn penseel</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

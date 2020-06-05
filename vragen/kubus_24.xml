@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Welk dieren zie je op dit schilderij?">
+		<image>de_zielenvisserij</image>
+			<antwoorden>
+				<antwoord>
+					<text>Bromvlieg</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Vissen</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Paarden</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Honden</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Op de rechteroever wordt iemand in een draagstoel gedragen. Wie is deze persoon?">
+		<image>de_zielenvisserij</image>
+			<antwoorden>
+				<antwoord>
+					<text>De paus</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>De koning van Spanje</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Sinterklaas</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Dit schilderij is gemaakt tijdens het 12-jarig bestand tijdens de 80-jarige oorlog. Met wie waren de Nederlanders in oorlog?">
+		<image>de_zielenvisserij</image>
+			<antwoorden>
+				<antwoord>
+					<text>Frankrijk</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>België</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Spanje</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

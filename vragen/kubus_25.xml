@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Hoe noem je zo’n type schilderij?">
+		<image>pronkstilleven</image>
+			<antwoorden>
+				<antwoord>
+					<text>Stilleven</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Tafelstuk</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Dinerschilderij</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Waar zie je de handtekening van de schilder?">
+		<image>pronkstilleven</image>
+			<antwoorden>
+				<antwoord>
+					<text>Rechtsonder bij het hondje</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Linksonder in het opengeslagen muziekboek</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Linksboven bij de papegaai</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

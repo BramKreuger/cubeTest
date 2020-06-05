@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Met welk materiaal is dit kunstwerk gemaakt?">
+		<image>de_zeeslag_bij_terheide</image>
+			<antwoorden>
+				<antwoord>
+					<text>olieverf</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Potloot</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Inkt</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Kijk goed naar het filmpje over de zee-zaal in het Rijksmuseum. De zeeslag op dit kunstwerk vond plaats op de Noordzee, tussen de Engelse en Nederlandse vloot. Op welke boot zat de schilder Willem van de Velde?">
+		<image>de_zeeslag_bij_terheide</image>
+			<antwoorden>
+				<antwoord>
+					<text>Hij was er helemaal niet bij</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Op het bootje linksvoor op het kunstwerk</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Op het belangrijkste schip van de Nederlanders, van admiraal Tromp en Michiel de Ruyter</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

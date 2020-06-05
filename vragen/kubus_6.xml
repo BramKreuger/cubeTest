@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Welk stukje van een sinterklaaslied past het beste bij dit schilderij?">
+		<image>het_sint_nicolaas_feest</image>
+			<antwoorden>
+				<antwoord>
+					<text>Sinterklaasje kom maar binnen met je knecht</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Hoort wie klopt daar kinderen</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Wie zoet is krijgt lekkers wie stout is de roe</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>O, kom er eens kijken wat ik in mijn schoentje vind.</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

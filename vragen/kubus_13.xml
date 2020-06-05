@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Waar heeft Jan Both dit schilderij geschilderd?">
+		<image>italiaans_landschap</image>
+			<antwoorden>
+				<antwoord>
+					<text>Buiten in de natuur, daar zie je het echte landschap</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>In een atelier in Rome. Hij had eerst een schets met potlood gemaakt.</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>In een atelier in Nederland. Met olieverf schilderen is te moeilijk om dat buiten te doen.</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

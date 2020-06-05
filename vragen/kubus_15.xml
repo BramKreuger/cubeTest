@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Voor wie is dit poppenhuis gemaakt?">
+		<image>poppenhuis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Moeder Petronella. Zo kon zij laten zien dat ze wist wat mooi was in die tijd.</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text> De dochter van Petronella. Daar kon zij mee spelen.</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>De zoon van Petronella. Ook jongens spelen met een poppenhuis.</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="In welke kamer sliepen de bediendes?">
+		<image>poppenhuis</image>
+			<antwoorden>
+				<antwoord>
+					<text>In de kamer helemaal rechtsboven</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>In een kamer die hier niet is te zien</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text> In de kamer helemaal linksboven.</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Hoe lang heeft het geduurd om het Poppenhuis af te krijgen?">
+		<image>poppenhuis</image>
+			<antwoorden>
+				<antwoord>
+					<text>2 jaar</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>10 jaar</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>20 jaar</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Welke kamer kenden men in de 17e eeuw niet?">
+		<image>poppenhuis</image>
+			<antwoorden>
+				<antwoord>
+					<text>Badkamer</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>WC</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Bijkeuken</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

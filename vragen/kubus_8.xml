@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Waar op het schilderij kun je de handtekening van de schilder, Jan Asselijn, zien?">
+		<image>de_bedreigde_zwaan</image>
+			<antwoorden>
+				<antwoord>
+					<text>Rechtsonder</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Linksonder</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Er is geen handtekening</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

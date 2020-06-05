@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Er staan een witte jongen en een zwarte jongen op het schilderij. Van de witte jongen weten we zijn naam, van de zwarte jongen niet. Hoe zou dat komen?">
+		<image>schutters_van_wijk_viii</image>
+			<antwoorden>
+				<antwoord>
+					<text>De schilder was is vergeten de naam erbij te zetten.</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>De zwarte jongen is een slaafgemaakte. Zij werden als statussymbool gezien, dus hun naam was niet belangrijk</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>De man waar de zwarte jongen achter staat heeft de leiding en wilde zijn rijkdom laten zien met een slaafgemaakte. Dan is zijn naam niet belangrijk.</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Wie zou de belangrijkste man zijn van deze groep, en waar zie je dat aan?">
+		<image>schutters_van_wijk_viii</image>
+			<antwoorden>
+				<antwoord>
+					<text>De man in het midden met de blauwe band om zijn buik en blauwe veer op zijn hoed. Hij is de kapitein en houdt een stok vast.</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>De man in het zilveren pak. Dit is de vaandrig en houdt een vlag over zijn schouders.</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>De man die uit het raam leunt. Hij heeft een gouden bekerschroef vast waar een wijnglas in zit geklemd.</text>
+					<correct>false</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>

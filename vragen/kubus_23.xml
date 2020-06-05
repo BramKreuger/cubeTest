@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<vraagCollectie>
+	<vragen>
+		<vraag_en_antwoord vraag="Waarom wilden rijke mensen kunstwerken hebben waar dieren uit verre landen op afgebeeldzijn?">
+		<image>de_buiten_partij</image>
+			<antwoorden>
+				<antwoord>
+					<text>Om te laten zien dat je rijk bent</text>
+					<correct>true</correct>
+				</antwoord>
+				<antwoord>
+					<text>Als herinnering aan je huisdier</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Als het een heilig dier is</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Om op te scheppen tegen je vrienden</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+		<vraag_en_antwoord vraag="Hoe lang hebben deze mensen moeten poseren voor de schilder?">
+		<image>de_buiten_partij</image>
+			<antwoorden>
+				<antwoord>
+					<text>Een dag</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Een week</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Een maand</text>
+					<correct>false</correct>
+				</antwoord>
+				<antwoord>
+					<text>Niet</text>
+					<correct>true</correct>
+				</antwoord>
+			</antwoorden>
+		</vraag_en_antwoord>
+	</vragen>
+</vraagCollectie>
