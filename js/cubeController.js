@@ -15,12 +15,19 @@ document.onload = setTimeout(function(){loadPage(0)}, 100);
 
 // This function checks the parameters passed to the URL and loads the corresponding xml :)
 function loadPage(){
-    var params = location.href.split('?')[1].split('&');
-    data = {};
-    for (x in params)
+    var params;
+    if(location.href.split('?')[1] != undefined)
     {
-        data[params[x].split('=')[0]] = params[x].split('=')[1];
+        params = location.href.split('?')[1].split('&');
+        data = {};
+        for (x in params)
+        {
+            data[params[x].split('=')[0]] = params[x].split('=')[1];
 
+        }
+    }
+    else{
+        alert("Could not find \"?kubus=\" in url. Please add \"?kubus=<integer>\" to the url");
     }
 
     if(data.kubus != undefined){
@@ -245,7 +252,7 @@ function ParseXML(xml) {
             var correct = (antwoordenXML[j].childNodes[3].textContent == 'true');
             antwoorden[j] = new Antwoord(text, correct);
         }
-        var image = new Image(); // Make sure to preload the images.
+        var image = new Image(); // Make sure to preload the images.\
         image.src = "https://bramkreuger.com/cube/images/" + images[i].textContent + ".jpg";
         vragen[i] = new Vraag(questions[i].getAttribute("vraag"), image, antwoorden)
     }
@@ -282,7 +289,7 @@ function ChangeQuestions(right) {
     var images = document.getElementsByClassName("art");
 
     titles[newFace].innerHTML = questionsInstance[currentQuestion].vraag;
-    images[newFace].src   =     questionsInstance[currentQuestion].image.src;
+    images[newFace].src       = questionsInstance[currentQuestion].image.src;
 
     for (var j = 0; j < questionsInstance[currentQuestion].antwoorden.length; j++) {
         AddQuestion(newFace, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
