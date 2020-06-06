@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Kubusvragen</title>
     <script src="js/cubeController.js"></script>
@@ -9,7 +10,11 @@
     <link rel="shortcut icon" href="#" />
 </head>
 
-<body style="width: 100%; height:100%;"> <!--vreemd -->
+<body style="width: 100%; height:100%;">
+    <audio id="audioFinished">
+        <source src="sound/finished.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
     <audio id="audioRight">
         <source src="sound/succes.mp3" type="audio/mp3">
         Your browser does not support the audio element.
@@ -18,6 +23,20 @@
         <source src="sound/wrong.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <div id="confetti-container">
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+    </div>
+
     <!-- Wrapper for the cube -->
     <div id="cube-wrapper">
         <div id="cube">
@@ -28,7 +47,7 @@
                 <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="base_images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wie heeft de nachtwacht geschilderd?</h3>
-                <img class="mask" src="base_images/mask.png" alt="mask">
+                <div class="mask"></div>
                 <img class="art" src="" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
@@ -36,7 +55,6 @@
                 </form>
                 <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
-                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="right_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
@@ -44,7 +62,7 @@
                 <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="base_images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Wanneer is de nachtwacht geschilderd?</h3>
-                <img class="mask" src="base_images/mask.png" alt="mask">
+                <div class="mask"></div>
                 <img class="art" src="" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
@@ -60,7 +78,7 @@
                 <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="base_images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">Waar woonde Rembrandt?</h3>
-                <img class="mask" src="base_images/mask.png" alt="mask">
+                <div class="mask"></div>
                 <img class="art" src="" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
@@ -68,7 +86,6 @@
                 </form>
                 <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
-                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="left_face" class="face face-glow">
                 <p class="counter">1 / 5 - 35</p>
@@ -76,7 +93,7 @@
                 <button onclick="rotateTop()" class="goUp"><i class="fa fa-arrow-up"></i></button>
                 <img class="logo" src="base_images/KUBUS_paars.png" alt="">
                 <h3 class="vraag">laatse?</h3>
-                <img class="mask" src="base_images/mask.png" alt="mask">
+                <div class="mask"></div>
                 <img class="art" src="" alt="">
                 <form class="cubeForm" onsubmit="return false">
                     <!-- Add dynamicly -->
@@ -84,7 +101,6 @@
                 </form>
                 <button class="goDown" onclick="rotateBottom()"><i class="fa fa-arrow-down"></i></button>
                 <button onclick="TurnLeft()" class="goBack"><i class="fa fa-chevron-left"></i></button>
-                <button onclick="Exit()" class="exit"><i class="fa fa-times"></i></button>
             </div>
             <div id="top_face" class="face">
                 <div class="faceWrapper stats">
@@ -144,4 +160,6 @@
             </div>
         </div>
     </div>
-</body></html>
+</body>
+
+</html>

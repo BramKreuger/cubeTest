@@ -35,7 +35,7 @@
 				</antwoord>
 				<antwoord>
 					<text>Sinterklaas</text>
-					<correct>true</correct>
+					<correct>false</correct>
 				</antwoord>
 			</antwoorden>
 		</vraag_en_antwoord>

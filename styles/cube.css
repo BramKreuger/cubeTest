@@ -1,5 +1,7 @@
 :root {
-    --purple: rgb(164, 52, 235);
+    --purple:      rgb(164, 52, 235);
+    --purple-alpha:rgb(164, 52, 235, 0);
+    --purple-dark: rgb(88, 27, 128);
 }
 
 html,
@@ -73,7 +75,9 @@ input[type=submit] {
         transform-origin: center;
     }
 
-
+    .mask{
+        background-image: url(../base_images/mask.png);
+    }
 
     /* Transforming every face into their correct positions */
 
@@ -124,11 +128,19 @@ input[type=submit] {
         height: calc(97.5% - 450px);
     }
 
+    #cube-wrapper {
+        font-size: 12px;
+    }
+
     .face {
         position: absolute;
         width: 666px;
         height: 375px;
         border: solid black 3px;
+    }
+
+    .mask{
+        background-image: url(../base_images/mask_large.png);
     }
 
     /* Transforming every face into their correct positions */
@@ -185,6 +197,7 @@ h3 {
 }
 
 #cube p label {
+    width: 50%;
     margin-top: 5px;
     margin-left: 5px;
 }
@@ -194,9 +207,9 @@ h3 {
     right: 0;
     height: 100%;
     width: 100%;
-    object-fit: cover;
     position: absolute;
     z-index: -1;
+    background-size: cover;
 }
 
 .art {
@@ -269,25 +282,25 @@ input[type=submit]:focus {
     left: 2%;
 }
 
-.exit {
-    color: white;
-    top: 5%;
-    right: 5%;
-}
-
 .goUp {
-    top: 5%;
-    right: 20%;
+    color: white;
+    top: 2px;
+    right: 5px;
 }
 
 .goUp i {
-    transform: rotate(35deg);
+    transform: rotate(45deg);
 }
 
 .goDown {
+    color: white;
     position: absolute;
-    bottom: 2%;
-    left: 40%;
+    bottom: 2px;
+    right: 5px;
+}
+
+.goDown  i {
+    transform: rotate(-45deg);
 }
 
 iframe {
@@ -345,6 +358,10 @@ iframe {
     border-radius: 50%;
 }
 
+input[type=checkbox] + .checkmark{
+    border-radius: 0%;
+}
+
 /* On mouse-over, add a grey background color */
 .customRadio:hover input ~ .checkmark {
     background-color: rgb(204, 204, 204, .5);
@@ -373,6 +390,10 @@ iframe {
     background: black;
 }
 
+input[type=checkbox] + .checkmark:after {
+    border-radius: 0%;
+}
+
 .pagination {
     display: flex;
     position: absolute;
@@ -381,32 +402,49 @@ iframe {
 }
 
 .pagination p {
-    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
     float: left;
     padding: 0 4px;
+    margin: 5px;
     text-decoration: none;
+    width: 5px;
+    height: 11px;
 }
 
 .pagination p.finished {
-    background-color: limegreen;
-    border-radius: 10%;
+    background-color: var(--purple);
     color: white;
 }
 
 .pagination p.active {
-    border: 1px solid black !important;
-    border-radius: 30% !important;
-    background-color: var(--purple) !important;
+    border: 1px solid black;
+    border-radius: 50% !important;
     color: white !important;
+    animation-name: ripple;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ripple{
+    0%{
+        box-shadow:
+        0 0 0 1px white,
+        0 0 0 2px var(--purple);
+    }
+    100%{
+        box-shadow:
+        0 0 0 5px white,
+        0 0 0 6px var(--purple-alpha);
+    }
 }
 
 .pagination p:hover:not(.active) {
     background-color: #ddd;
-    border-radius: 10%;
 }
 
 .pagination .finished:hover {
-    background-color: green !important;
+    background-color: var(--purple-dark) !important;
     cursor: pointer;
 }
 

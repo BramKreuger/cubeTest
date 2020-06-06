@@ -133,7 +133,8 @@ function FinishRotating() {
 }
 
 function Exit() {
-    document.getElementById("cube-wrapper").style.display = "none";
+    var someIframe = window.parent.document.getElementById('iframe_callback');
+    someIframe.parentNode.removeChild(window.parent.document.getElementById('iframe_callback'));
 }
 
 function SaveAnswer() {
@@ -143,34 +144,37 @@ function SaveAnswer() {
 
     //Loop and find only the Radios
     for (var i = 0; i < inputs.length; ++i) {
-        if (inputs[i].type == 'radio') {
+        if (inputs[i].type == 'radio' || inputs[i].type == 'checkbox') {
             radios.push(inputs[i]);
         }
     }
 
-    //var found = 1;
+    var bools = new Array(questionsInstance[currentFace].antwoorden.length);
     for (var i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-            selectedAnswers[currentQuestion] = i;
-        }
+        bools[i] = radios[i].checked;
     }
+    selectedAnswers[currentQuestion] = new SelectedAnswers(bools);
 }
 
 // Manipulate the DOM to add the answers.
-function AddQuestion(questionNr, answerNr, text) {
+function AddQuestion(questionNr, answerNr, text, multipleChoice) {
     var allCubeForms = document.getElementsByClassName("cubeForm");
     var submit = document.getElementsByClassName("check");
 
     var p = document.createElement("P"); // This is the container of all the elements
-    var radio = document.createElement("INPUT");
     var cont = document.createElement("DIV"); // Container of the custom radio button
     var check = document.createElement("SPAN");
+    var radio = document.createElement("INPUT");
 
     p.setAttribute("class", "question");
     cont.setAttribute("class", "customRadio");
     check.setAttribute("class", "checkmark");
 
-    radio.setAttribute("type", "radio");
+    if(multipleChoice == false)
+        radio.setAttribute("type", "radio");
+    else
+        radio.setAttribute("type", "checkbox");
+
     var name = "vraag_";
     name += questionNr;
     radio.setAttribute("name", name);
@@ -180,20 +184,18 @@ function AddQuestion(questionNr, answerNr, text) {
     radio.value = val;
 
     if (answerNr == 0) radio.checked = true;
-
     if (selectedAnswers != undefined) { // If the array exists
         if (selectedAnswers[currentQuestion] != undefined) { // If the current question has been loaded before
-            if (answerNr == selectedAnswers[currentQuestion]) { // If the current answer equals the selected answer
-                radio.checked = true;
-            }
+            radio.checked = selectedAnswers[currentQuestion].correct[answerNr];
         }
     }
+    cont.appendChild(radio);
 
     var label = document.createElement("LABEL");
     label.setAttribute("for", val);
     label.innerHTML = text;
 
-    cont.appendChild(radio); // Append all
+    // Append all
     cont.appendChild(check);
     p.appendChild(cont);
     p.appendChild(label)
@@ -238,21 +240,33 @@ class Antwoord {
     }
 }
 
+class SelectedAnswers{
+    constructor(_correct){
+        this.correct = _correct;
+    }
+}
+
 // Stick the XML data in more managable classes
 function ParseXML(xml) {
     var questions = xml.getElementsByTagName("vraag_en_antwoord");
     var images    = xml.getElementsByTagName("image");
     nrOfQuestions = questions.length - 1;
     var vragen = new Array(questions.length);
+
     for (var i = 0; i < questions.length; i++) {
+
         var antwoordenXML = questions[i].getElementsByTagName("antwoord");
         var antwoorden = new Array(antwoordenXML.length);
+
         for (var j = 0; j < antwoordenXML.length; j++) {
+
             var text = antwoordenXML[j].childNodes[1].textContent;
             var correct = (antwoordenXML[j].childNodes[3].textContent == 'true');
             antwoorden[j] = new Antwoord(text, correct);
+
         }
-        var image = new Image(); // Make sure to preload the images.\
+
+        var image = new Image(); // Make sure to preload the images.
         image.src = "https://bramkreuger.com/cube/images/" + images[i].textContent + ".jpg";
         vragen[i] = new Vraag(questions[i].getAttribute("vraag"), image, antwoorden)
     }
@@ -291,22 +305,48 @@ function ChangeQuestions(right) {
     titles[newFace].innerHTML = questionsInstance[currentQuestion].vraag;
     images[newFace].src       = questionsInstance[currentQuestion].image.src;
 
+    var correctCounter = 0;
+    var multipleChoice = false;
+    for(var i=0; i < questionsInstance[currentQuestion].antwoorden.length; i++){
+        if(questionsInstance[currentQuestion].antwoorden[i].correct == true){
+            correctCounter++;
+        }
+    }
+    if(correctCounter > 1){
+        multipleChoice = true;
+    }
+
     for (var j = 0; j < questionsInstance[currentQuestion].antwoorden.length; j++) {
-        AddQuestion(newFace, j, questionsInstance[currentQuestion].antwoorden[j].antwoord);
+        AddQuestion(newFace, j, questionsInstance[currentQuestion].antwoorden[j].antwoord, multipleChoice);
     }
 }
 
 function CheckCorrect(groupNumber) {
-    if (rotating == false && currentQuestion < nrOfQuestions) {
+    if (rotating == false) {
         var groupName = "vraag_" + groupNumber;
         var radios = document.getElementsByName(groupName);
+        var wrong = false;
         for (i = 0; i < radios.length; i++) {
+            if(radios[i].checked != questionsInstance[groupNumber].antwoorden[i].correct)
+                wrong = true;
+
             // Answer is correct, move on
-            if (radios[i].checked && questionsInstance[groupNumber].antwoorden[i].correct == true) {
-                Rotate(1);
-                playAudio("audioRight");
-                faceGlow(groupNumber, true);
-                return;
+            if (i == radios.length - 1 && wrong == false) {
+                if(currentQuestion < nrOfQuestions)
+                {
+                    Rotate(1);
+                    playAudio("audioRight");
+                    faceGlow(groupNumber, true);
+                    return;
+                }
+                else
+                {
+                    document.getElementById("confetti-container").style.display = "block";
+                    moveToFace(0);
+                    playAudio("audioFinished");
+                    faceGlow(groupNumber, true);
+                    return;
+                }
             }
         }
         playAudio("audioWrong");
@@ -317,6 +357,8 @@ function CheckCorrect(groupNumber) {
 
 function playAudio(id) {
     var audio = document.getElementById(id);
+    if(id = "audioFinished")
+        audio.volume = 0.5;
     if (audio.paused) {
         audio.play();
     } else {
@@ -340,6 +382,7 @@ function ChangeCounter(question) {
 }
 
 function ChangePaginator(question, right) {
+    console.log(question + " : " + right);
     var pagers = document.getElementsByClassName("pagination");
     if (pagers[question].children.length == 0) { // If there are no "-"'s make new ones.
         for (var i = 0; i < 4; i++) {
@@ -349,7 +392,7 @@ function ChangePaginator(question, right) {
                     page.addEventListener("click", function () { // Bind the onclick with param to the P
                         moveToFace(j);
                     });
-                    page.innerHTML = "-";
+                    page.innerHTML = " ";
                     pagers[i].appendChild(page);
                 })(j);
             }
@@ -402,6 +445,7 @@ function rotateTop(){
         rotTop = "up";
     }
 }
+
 function rotateBottom(){
     var cube     = document.getElementById("cube");
     var animName = "rotate-bottom-" + (currentFace + 1) + "-" + rotBottom;
