@@ -378,7 +378,7 @@ function faceGlow(faceNumber, correct) {
 
 function ChangeCounter(question) {
     var currentCounter = document.getElementsByClassName("counter")[question];
-    currentCounter.innerHTML = (currentQuestion + 1) + " / " + (nrOfQuestions + 1) + " van " + "35";
+    currentCounter.innerHTML = (currentQuestion + 1) + " van " + "35";
 }
 
 function ChangePaginator(question, right) {

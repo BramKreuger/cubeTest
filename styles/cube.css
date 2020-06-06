@@ -1,6 +1,6 @@
 :root {
-    --purple:      rgb(164, 52, 235);
-    --purple-alpha:rgb(164, 52, 235, 0);
+    --purple: rgb(164, 52, 235);
+    --purple-alpha: rgb(164, 52, 235, 0);
     --purple-dark: rgb(88, 27, 128);
 }
 
@@ -75,8 +75,12 @@ input[type=submit] {
         transform-origin: center;
     }
 
-    .mask{
+    .mask {
         background-image: url(../base_images/mask.png);
+    }
+
+     form {
+        height: 90px;
     }
 
     /* Transforming every face into their correct positions */
@@ -139,8 +143,12 @@ input[type=submit] {
         border: solid black 3px;
     }
 
-    .mask{
+    .mask {
         background-image: url(../base_images/mask_large.png);
+    }
+
+    form {
+        height: 220px;
     }
 
     /* Transforming every face into their correct positions */
@@ -194,6 +202,8 @@ h3 {
     margin-top: 10px;
     margin-bottom: 5px;
     margin-left: 5%;
+    line-height: 17px;
+    direction: ltr;
 }
 
 #cube p label {
@@ -226,6 +236,8 @@ form {
     display: flex;
     flex-direction: column;
     line-height: 10px;
+    overflow-y: auto;
+    direction: rtl;
 }
 
 .question {
@@ -236,7 +248,7 @@ input[type=submit] {
     position: absolute;
     background: rgb(255, 255, 255, .5);
     width: 30%;
-    margin-left: 10%;
+    left: 10%;
     bottom: 2%;
     border: none !important;
 }
@@ -299,7 +311,7 @@ input[type=submit]:focus {
     right: 5px;
 }
 
-.goDown  i {
+.goDown i {
     transform: rotate(-45deg);
 }
 
@@ -308,16 +320,42 @@ iframe {
 }
 
 .logo {
+    display: flex;
     position: absolute;
-    width: 25px;
     top: 2%;
     left: 2%;
+    color: var(--purple);
 }
+
+.logo img{
+    width: 25px;
+}
+
 
 .counter {
     position: absolute;
     top: 2%;
-    left: 5%;
+    left: 20%;
+}
+/* Restyle the scrollbar ----------------------*/
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 /* Restyle the radio button ----------------------*/
@@ -350,7 +388,7 @@ iframe {
 /* Create a custom radio button */
 .checkmark {
     position: absolute;
-    top: 0;
+    top: 3px;
     left: 0;
     height: 20px;
     width: 20px;
@@ -358,7 +396,7 @@ iframe {
     border-radius: 50%;
 }
 
-input[type=checkbox] + .checkmark{
+input[type=checkbox] + .checkmark {
     border-radius: 0%;
 }
 
@@ -398,7 +436,7 @@ input[type=checkbox] + .checkmark:after {
     display: flex;
     position: absolute;
     top: 2%;
-    left: 30%;
+    left: 40%;
 }
 
 .pagination p {
@@ -426,16 +464,17 @@ input[type=checkbox] + .checkmark:after {
     animation-iteration-count: infinite;
 }
 
-@keyframes ripple{
-    0%{
+@keyframes ripple {
+    0% {
         box-shadow:
-        0 0 0 1px white,
-        0 0 0 2px var(--purple);
+            0 0 0 1px white,
+            0 0 0 2px var(--purple);
     }
-    100%{
+
+    100% {
         box-shadow:
-        0 0 0 5px white,
-        0 0 0 6px var(--purple-alpha);
+            0 0 0 5px white,
+            0 0 0 6px var(--purple-alpha);
     }
 }
 
@@ -470,10 +509,8 @@ input[type=checkbox] + .checkmark:after {
 }
 
 .promo button {
-    right: 7px;
-    top: -5px;
-    margin-right: 15px;
-    font-size: 40px;
+    right: -5px;
+    top: -8px;
     color: white;
 }
 

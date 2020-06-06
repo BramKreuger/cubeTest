@@ -151,74 +151,74 @@
 
 @keyframes rotate-top-1-up {
     0% {
-        transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
+        transform: rotate3d(0, 0, 0, 0deg);
 
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg);
 
     }
 }
 
 @keyframes rotate-top-1-down {
     0% {
-        transform: rotate3d(1, 0, 0, -90deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg);
     }
 
     100% {
-        transform: rotate3d(0, 0, 0, 0deg) translateZ(0px);
+        transform: rotate3d(0, 0, 0, 0deg);
     }
 }
 
 @keyframes rotate-top-2-up {
     0% {
-        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
+        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
 
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
     }
 }
 
 @keyframes rotate-top-2-down {
     0% {
-        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -90deg);
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg) translateZ(0px);
+        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -90deg);
     }
 }
 
 @keyframes rotate-top-3-up {
     0% {
-        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
+        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
     }
 }
 
 @keyframes rotate-top-3-down {
     0% {
-        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -180deg);
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg) translateZ(0px);
+        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -180deg);
     }
 }
 
 @keyframes rotate-top-4-up {
     0% {
-        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg) translateZ(0px);
+        transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -270deg);
     }
 
     100% {
-        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg) translateY(-200px);
+        transform: rotate3d(1, 0, 0, -90deg) rotate3d(0, 1, 0, -270deg);
     }
 }
 
